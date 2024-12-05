@@ -1,4 +1,5 @@
 local lsps = {
+	["denols"] = {},
 	["lua_ls"] = {
 		on_init = function(client)
 			if client.workspace_folders then
@@ -29,6 +30,7 @@ local lsps = {
 	},
 	["gopls"] = {},
 	["htmx"] = {},
+	["tailwindcss"] = {},
 	["templ"] = {},
 	["rust_analyzer"] = {},
 }

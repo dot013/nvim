@@ -34,9 +34,11 @@
   ];
 
   languageServers = with pkgs; [
+    deno
     gopls
     htmx-lsp
     lua-language-server
+    tailwindcss-language-server
     templ
     rust-analyzer
   ];
