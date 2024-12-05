@@ -35,7 +35,9 @@
 
   languageServers = with pkgs; [
     gopls
+    htmx-lsp
     lua-language-server
+    templ
     rust-analyzer
   ];
 

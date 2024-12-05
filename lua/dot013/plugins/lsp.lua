@@ -28,6 +28,8 @@ local lsps = {
 		},
 	},
 	["gopls"] = {},
+	["htmx"] = {},
+	["templ"] = {},
 	["rust_analyzer"] = {},
 }
 
