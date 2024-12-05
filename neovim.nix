@@ -12,6 +12,7 @@
     catppuccin-nvim
     indent-blankline-nvim
     lze
+    nvim-lspconfig
     nvim-treesitter.withAllGrammars
     nvim-treesitter-textobjects
     nvim-treesitter-textsubjects
@@ -30,6 +31,10 @@
     telescope-nvim
     telescope-fzf-native-nvim
     tmux-nvim
+  ];
+
+  languageServers = with pkgs; [
+    lua-language-server
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
@@ -76,7 +81,12 @@ in
     name = "neovim-custom";
     pname = "nvim";
 
-  paths = [nvimPkg];
+    paths = let
+      wrappedNvim = pkgs.writeShellScriptBin "nvim" ''
+        export PATH=${lib.makeBinPath languageServers}:$PATH
+        ${lib.getExe nvimPkg} "$@"
+      '';
+    in [wrappedNvim];
     nativeBuildInputs = [makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/nvim \
