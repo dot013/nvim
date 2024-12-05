@@ -9,6 +9,8 @@
 
   startPlugins = with pkgs;
   with vimPlugins; [
+    catppuccin-nvim
+    indent-blankline-nvim
     lze
     (vimUtils.buildVimPlugin {
       name = "dot013.nvim";
@@ -19,7 +21,9 @@
   optPlugins = with pkgs;
   with pkgs.vimPlugins; [
     harpoon2
+    lualine-nvim
     marks-nvim
+    nvim-web-devicons
     telescope-nvim
     telescope-fzf-native-nvim
     nvim-treesitter.withAllGrammars
