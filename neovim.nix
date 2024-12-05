@@ -41,6 +41,7 @@
     nil
     tailwindcss-language-server
     templ
+    typescript-language-server
     rust-analyzer
   ];
 

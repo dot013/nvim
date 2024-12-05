@@ -33,6 +33,7 @@ local lsps = {
 	["nil_ls"] = {},
 	["tailwindcss"] = {},
 	["templ"] = {},
+	["ts_ls"] = {},
 	["rust_analyzer"] = {},
 }
 
