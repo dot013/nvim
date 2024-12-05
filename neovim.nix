@@ -12,6 +12,9 @@
     catppuccin-nvim
     indent-blankline-nvim
     lze
+    nvim-treesitter.withAllGrammars
+    nvim-treesitter-textobjects
+    nvim-treesitter-textsubjects
     (vimUtils.buildVimPlugin {
       name = "dot013.nvim";
       src = ./.;
@@ -26,7 +29,6 @@
     nvim-web-devicons
     telescope-nvim
     telescope-fzf-native-nvim
-    nvim-treesitter.withAllGrammars
     tmux-nvim
   ];
 
