@@ -1,4 +1,6 @@
 local lsps = {
+	["cssls"] = {},
+	["eslint"] = {},
 	["denols"] = {},
 	["lua_ls"] = {
 		on_init = function(client)
@@ -29,7 +31,9 @@ local lsps = {
 		},
 	},
 	["gopls"] = {},
+	["html"] = {},
 	["htmx"] = {},
+	["jsonls"] = {},
 	["nil_ls"] = {},
 	["tailwindcss"] = {},
 	["templ"] = {},

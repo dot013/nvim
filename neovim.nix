@@ -43,6 +43,7 @@
     templ
     typescript-language-server
     rust-analyzer
+    vscode-langservers-extracted
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
