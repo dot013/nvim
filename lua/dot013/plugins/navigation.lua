@@ -6,7 +6,11 @@ return {
 		},
 		dep_of = { "harpoon2" },
 		keys = {
-			{ "<leader><space>", ":lua require('telescope.builtin').buffers<cr>", "[Telescope] Find existing buffers" },
+			{
+				"<leader><space>",
+				":lua require('telescope.builtin').buffers<cr>",
+				desc = "[Telescope] Find existing buffers",
+			},
 			{
 				"/",
 				function()
@@ -17,14 +21,14 @@ return {
 						})
 					)
 				end,
-				"[Telescope] Find in current buffer",
+				desc = "[Telescope] Find in current buffer",
 			},
-			{ "fr", ":lua require('telescope.builtin').oldfiles()<cr>", "[Telescope] Find recent files" },
-			{ "ff", "<cmd>Telescope find_files<cr>", "[Telescope] Find files" },
-			{ "fw", ":lua require('telescope.builtin').grep_string()<cr>", "[Telescope] Find word" },
-			{ "<leader>fw", "<cmd>Telescope live_grep<cr>", "[Telescope] Find word in all files" },
-			{ "gf", ":lua require('telescope.builtin').git_files()<cr>", "[Telescope] Git files" },
-			{ "fs", ":lua require('telescope.builtin').resume()<cr>", "[Telescope] Resume search" },
+			{ "fr", ":lua require('telescope.builtin').oldfiles()<cr>", desc = "[Telescope] Find recent files" },
+			{ "ff", "<cmd>Telescope find_files<cr>", desc = "[Telescope] Find files" },
+			{ "fw", ":lua require('telescope.builtin').grep_string()<cr>", desc = "[Telescope] Find word" },
+			{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "[Telescope] Find word in all files" },
+			{ "gf", ":lua require('telescope.builtin').git_files()<cr>", desc = "[Telescope] Git files" },
+			{ "fs", ":lua require('telescope.builtin').resume()<cr>", desc = "[Telescope] Resume search" },
 		},
 		after = function()
 			require("telescope").setup()
@@ -67,35 +71,35 @@ return {
 					function()
 						harpoon():list():add()
 					end,
-					"[Harpoon] Append to list",
+					desc = "[Harpoon] Append to list",
 				},
 				{
 					"<C-e>",
 					function()
 						toggle_telescope(harpoon():list())
 					end,
-					"[Harpoon] Open quick menu",
+					desc = "[Harpoon] Open quick menu",
 				},
 				{
 					"<C-E>",
 					function()
 						harpoon().ui:toggle_quick_menu(harpoon():list())
 					end,
-					"[Harpoon] Open quick edit menu",
+					desc = "[Harpoon] Open quick edit menu",
 				},
 				{
 					"<C-p>",
 					function()
 						harpoon():list():prev()
 					end,
-					"[Harpoon] Jump to previous item",
+					desc = "[Harpoon] Jump to previous item",
 				},
 				{
 					"<C-n>",
 					function()
 						harpoon():list():next()
 					end,
-					"[Harpoon] Jump to next item",
+					desc = "[Harpoon] Jump to next item",
 				},
 			}
 		end)(),
@@ -111,10 +115,10 @@ return {
 	{
 		"tmux.nvim",
 		keys = {
-			{ "<C-h>", ":lua require('tmux').move_left()<cr>", "[Tmux] Move to left pane" },
-			{ "<C-j>", ":lua require('tmux').move_bottom()<cr>", "[Tmux] Move to bottom pane" },
-			{ "<C-k>", ":lua require('tmux').move_top()<cr>", "[Tmux] Move to top pane" },
-			{ "<C-l>", ":lua require('tmux').move_right()<cr>", "[Tmux] Move to right pane" },
+			{ "<C-h>", ":lua require('tmux').move_left()<cr>", desc = "[Tmux] Move to left pane" },
+			{ "<C-j>", ":lua require('tmux').move_bottom()<cr>", desc = "[Tmux] Move to bottom pane" },
+			{ "<C-k>", ":lua require('tmux').move_top()<cr>", desc = "[Tmux] Move to top pane" },
+			{ "<C-l>", ":lua require('tmux').move_right()<cr>", desc = "[Tmux] Move to right pane" },
 		},
 		after = function()
 			require("tmux").setup()
