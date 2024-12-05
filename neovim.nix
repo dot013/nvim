@@ -38,6 +38,7 @@
     gopls
     htmx-lsp
     lua-language-server
+    nil
     tailwindcss-language-server
     templ
     rust-analyzer

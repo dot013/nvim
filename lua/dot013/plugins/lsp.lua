@@ -30,6 +30,7 @@ local lsps = {
 	},
 	["gopls"] = {},
 	["htmx"] = {},
+	["nil_ls"] = {},
 	["tailwindcss"] = {},
 	["templ"] = {},
 	["rust_analyzer"] = {},
