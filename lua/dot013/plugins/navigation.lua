@@ -100,4 +100,12 @@ return {
 			}
 		end)(),
 	},
+	{
+		"marks.nvim",
+		after = function()
+			require("marks").setup({
+				refresh_interval = 250,
+			})
+		end,
+	},
 }

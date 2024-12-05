@@ -19,6 +19,7 @@
   optPlugins = with pkgs;
   with pkgs.vimPlugins; [
     harpoon2
+    marks-nvim
     telescope-nvim
     telescope-fzf-native-nvim
     nvim-treesitter.withAllGrammars
