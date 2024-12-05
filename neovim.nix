@@ -34,7 +34,9 @@
   ];
 
   languageServers = with pkgs; [
+    gopls
     lua-language-server
+    rust-analyzer
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];

@@ -27,6 +27,8 @@ local lsps = {
 			},
 		},
 	},
+	["gopls"] = {},
+	["rust_analyzer"] = {},
 }
 
 return {
