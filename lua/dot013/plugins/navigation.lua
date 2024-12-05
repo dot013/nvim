@@ -108,4 +108,16 @@ return {
 			})
 		end,
 	},
+	{
+		"tmux.nvim",
+		keys = {
+			{ "<C-h>", ":lua require('tmux').move_left()<cr>", "[Tmux] Move to left pane" },
+			{ "<C-j>", ":lua require('tmux').move_bottom()<cr>", "[Tmux] Move to bottom pane" },
+			{ "<C-k>", ":lua require('tmux').move_top()<cr>", "[Tmux] Move to top pane" },
+			{ "<C-l>", ":lua require('tmux').move_right()<cr>", "[Tmux] Move to right pane" },
+		},
+		after = function()
+			require("tmux").setup()
+		end,
+	},
 }

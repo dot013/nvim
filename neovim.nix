@@ -23,6 +23,7 @@
     telescope-nvim
     telescope-fzf-native-nvim
     nvim-treesitter.withAllGrammars
+    tmux-nvim
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
