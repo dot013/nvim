@@ -27,6 +27,9 @@
     harpoon2
     lualine-nvim
     marks-nvim
+    nvim-dap
+    nvim-dap-ui
+    nvim-dap-virtual-text
     nvim-web-devicons
     telescope-nvim
     telescope-fzf-native-nvim

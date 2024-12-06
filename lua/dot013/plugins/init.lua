@@ -1,5 +1,6 @@
 return {
 	{ import = "dot013.plugins.appearance" },
+	{ import = "dot013.plugins.debugger" },
 	{ import = "dot013.plugins.lsp" },
 	{ import = "dot013.plugins.navigation" },
 	{ import = "dot013.plugins.treesitter" },
