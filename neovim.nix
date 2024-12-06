@@ -25,6 +25,7 @@
 
   optPlugins = with pkgs;
   with pkgs.vimPlugins; [
+    auto-save-nvim
     blink-cmp
     friendly-snippets
     harpoon2
