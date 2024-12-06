@@ -16,6 +16,7 @@
     nvim-treesitter.withAllGrammars
     nvim-treesitter-textobjects
     nvim-treesitter-textsubjects
+
     (vimUtils.buildVimPlugin {
       name = "dot013.nvim";
       src = ./.;
@@ -24,8 +25,11 @@
 
   optPlugins = with pkgs;
   with pkgs.vimPlugins; [
+    blink-cmp
+    friendly-snippets
     harpoon2
     lualine-nvim
+    luasnip
     marks-nvim
     nvim-dap
     nvim-dap-go
