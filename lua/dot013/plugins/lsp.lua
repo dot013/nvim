@@ -42,11 +42,14 @@ local lsps = {
 }
 
 return {
-	"nvim-lspconfig",
-	after = function()
-		local lsp = require("lspconfig")
-		for k, v in pairs(lsps) do
-			lsp[k].setup(v)
-		end
-	end,
+	{
+		"nvim-lspconfig",
+		after = function()
+			local lsp = require("lspconfig")
+			for k, v in pairs(lsps) do
+				v.capabilities = require("blink.cmp").get_lsp_capabilities(v.capabilities)
+				lsp[k].setup(v)
+			end
+		end,
+	},
 }
