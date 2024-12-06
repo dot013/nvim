@@ -38,4 +38,7 @@ return {
 		},
 	},
 	{ "nvim-dap-virtual-text", dep_of = { "nvim-dap" } },
+
+	-- Language specific debuggers
+	{ "nvim-dap-go", dep_of = { "nvim-dap" }, enabled = vim.fn.executable("delve") == 1 },
 }

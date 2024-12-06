@@ -28,6 +28,7 @@
     lualine-nvim
     marks-nvim
     nvim-dap
+    nvim-dap-go
     nvim-dap-ui
     nvim-dap-virtual-text
     nvim-web-devicons
