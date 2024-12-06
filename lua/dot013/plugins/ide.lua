@@ -85,4 +85,9 @@ return {
 		"cloak-nvim",
 		ft = { "sh" },
 	},
+
+	{
+		"vim-obsession",
+		cmd = "Obsess",
+	},
 }

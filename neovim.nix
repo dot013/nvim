@@ -41,6 +41,7 @@
     telescope-nvim
     telescope-fzf-native-nvim
     tmux-nvim
+    vim-obsession
   ];
 
   languageServers = with pkgs; [
