@@ -8,24 +8,25 @@
     self,
     nixpkgs,
     ...
-  }@inputs: let
+  } @ inputs: let
     systems = [
       "x86_64-linux"
       "aarch64-linux"
       "x86_64-darwin"
       "aarch64-darwin"
     ];
-      overlays = [
-        inputs.neovim-nightly-overlay.overlays.default
-      ];
-    forAllSystems = f: nixpkgs.lib.genAttrs systems (system: let
-      pkgs = import nixpkgs {inherit system overlays;};
-    in
-      f system pkgs);
+    overlays = [
+      inputs.neovim-nightly-overlay.overlays.default
+    ];
+    forAllSystems = f:
+      nixpkgs.lib.genAttrs systems (system: let
+        pkgs = import nixpkgs {inherit system overlays;};
+      in
+        f system pkgs);
   in {
     packages = forAllSystems (system: pkgs: {
       neovim = self.packages.${system}.default;
-      default = (pkgs.callPackage ./neovim.nix {});
+      default = pkgs.callPackage ./neovim.nix {};
     });
     devShells = forAllSystems (system: pkgs: {
       default = pkgs.mkShell {
