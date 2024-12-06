@@ -80,4 +80,9 @@ return {
 		end,
 	},
 	{ "friendly-snippets", dep_of = { "luasnip" } },
+
+	{
+		"cloak-nvim",
+		ft = { "sh" },
+	},
 }

@@ -27,6 +27,7 @@
   with pkgs.vimPlugins; [
     auto-save-nvim
     blink-cmp
+    cloak-nvim
     friendly-snippets
     harpoon2
     lualine-nvim
