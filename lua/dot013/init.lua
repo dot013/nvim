@@ -1,4 +1,5 @@
 require("dot013.options")
+require("dot013.tweaks")
 
 vim.g.lze = {
 	--@type fun(name: string)
