@@ -29,6 +29,7 @@
     auto-session
     blink-cmp
     cloak-nvim
+    conform-nvim
     friendly-snippets
     gitsigns-nvim
     harpoon2
