@@ -18,54 +18,51 @@ local function js_fmt(bufnr)
 	return f
 end
 
-local formatters_by_ft = {
-	["lua"] = { "stylua" },
-	["nix"] = { "alejandra" },
-	["rust"] = { "rustfmt", lsp_format = "fallback" },
-
-	["go"] = function(bufnr)
-		local f = {}
-
-		if require("conform").get_formatter_info("gofumpt", bufnr).available then
-			table.insert(f, "gofumpt")
-		else
-			table.insert(f, "gofmt")
-		end
-
-		if require("conform").get_formatter_info("golines", bufnr).available then
-			table.insert(f, "golines")
-		elseif require("conform").get_formatter_info("goimports", bufnr).available then
-			table.insert(f, "goimports")
-		end
-
-		return f
-	end,
-
-	["javascript"] = js_fmt,
-	["javascriptreact"] = js_fmt,
-	["typescript"] = js_fmt,
-	["typescriptreact"] = js_fmt,
-	["json"] = function(bufnr)
-		return { table.unpack(js_fmt(bufnr)), "jq" }
-	end,
-
-	["*"] = { "codespell" },
-	["_"] = { "trim_whitespace" },
-}
-
 return {
+	-- Formatters support
 	{
 		"conform.nvim",
-		ft = (function()
-			local fts = {}
-			for k, _ in pairs(formatters_by_ft) do
-				table.insert(fts, k)
-			end
-			return fts
-		end)(),
+		event = { "InsertLeave", "TextChanged" },
 		after = function()
 			require("conform").setup({
-				formatters_by_ft = formatters_by_ft,
+				formatters_by_ft = {
+					-- Simple formatters
+					lua = { "stylua" },
+					nix = { "alejandra" },
+					rust = { "rustfmt", lsp_format = "fallback" },
+
+					-- Golang's formatters used by priority
+					go = function(bufnr)
+						local f = {}
+
+						if require("conform").get_formatter_info("gofumpt", bufnr).available then
+							table.insert(f, "gofumpt")
+						else
+							table.insert(f, "gofmt")
+						end
+
+						if require("conform").get_formatter_info("golines", bufnr).available then
+							table.insert(f, "golines")
+						elseif require("conform").get_formatter_info("goimports", bufnr).available then
+							table.insert(f, "goimports")
+						end
+
+						return f
+					end,
+
+					-- JavaScript's ecosystem
+					javascript = js_fmt,
+					javascriptreact = js_fmt,
+					typescript = js_fmt,
+					typescriptreact = js_fmt,
+					json = function(bufnr)
+						return { table.unpack(js_fmt(bufnr)), "jq" }
+					end,
+
+					-- Fallback for any filetype
+					["*"] = { "codespell" },
+					["_"] = { "trim_whitespace" },
+				},
 				format_on_save = {
 					timeout_ms = 500,
 					lsp_format = "fallback",
