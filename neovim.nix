@@ -30,6 +30,7 @@
     blink-cmp
     cloak-nvim
     friendly-snippets
+    gitsigns-nvim
     harpoon2
     lualine-nvim
     luasnip

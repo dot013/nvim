@@ -116,6 +116,33 @@ return {
 		end,
 	},
 
+	-- Git integration, enabled just in git repos
 	{
+		"gitsigns.nvim",
+		cmd = "Gitsigns",
+		keys = {
+			{
+				"<leader>gt",
+				"<cmd>Gitsigns toggle_current_line_blame<cr>",
+				desc = "[Git] Toggle line blame",
+			},
+		},
+		enabled = require("dot013.utils").is_in_cwd(".git"),
+		lazy = not require("dot013.utils").is_in_cwd(".git"),
+		after = function()
+			require("gitsigns").setup({
+				signs = {
+					add = { text = "+" },
+					change = { text = "~" },
+					delete = { text = "+" },
+					topdelete = { text = "-" },
+					changedelete = { text = "~" },
+				},
+				current_line_blame = false,
+				current_line_blame_opts = {
+					delay = 0,
+				},
+			})
+		end,
 	},
 }
