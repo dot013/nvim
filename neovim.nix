@@ -30,6 +30,7 @@
     blink-cmp
     cloak-nvim
     conform-nvim
+    comment-nvim
     friendly-snippets
     gitsigns-nvim
     harpoon2
