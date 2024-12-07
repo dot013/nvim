@@ -1,7 +1,7 @@
 local lsps = {
-	["cssls"] = {},
-	["eslint"] = {},
-	["denols"] = {},
+	["cssls"] = nil,
+	["eslint"] = nil,
+	["denols"] = nil,
 	["lua_ls"] = {
 		on_init = function(client)
 			if client.workspace_folders then
@@ -30,15 +30,15 @@ local lsps = {
 			},
 		},
 	},
-	["gopls"] = {},
-	["html"] = {},
-	["htmx"] = {},
-	["jsonls"] = {},
-	["nil_ls"] = {},
-	["tailwindcss"] = {},
-	["templ"] = {},
-	["ts_ls"] = {},
-	["rust_analyzer"] = {},
+	["gopls"] = nil,
+	["html"] = nil,
+	["htmx"] = nil,
+	["jsonls"] = nil,
+	["nil_ls"] = nil,
+	["tailwindcss"] = nil,
+	["templ"] = nil,
+	["ts_ls"] = nil,
+	["rust_analyzer"] = nil,
 }
 
 return {
