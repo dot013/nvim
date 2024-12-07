@@ -30,6 +30,7 @@ return {
 					lua = { "stylua" },
 					nix = { "alejandra" },
 					rust = { "rustfmt", lsp_format = "fallback" },
+					sh = { "shellharden", "shfmt" },
 
 					-- Golang's formatters used by priority
 					go = function(bufnr)
