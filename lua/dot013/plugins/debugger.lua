@@ -42,8 +42,21 @@ return {
 	},
 
 	-- Debugger state hover
-	{ "nvim-dap-virtual-text", dep_of = { "nvim-dap" } },
+	{
+		"nvim-dap-virtual-text",
+		dep_of = { "nvim-dap" },
+		after = function()
+			require("nvim-dap-virtual-text").setup()
+		end,
+	},
 
 	-- Language specific debuggers
-	{ "nvim-dap-go", dep_of = { "nvim-dap" }, enabled = vim.fn.executable("delve") == 1 },
+	{
+		"nvim-dap-go",
+		dep_of = { "nvim-dap" },
+		enabled = vim.fn.executable("delve") == 1,
+		after = function()
+			require("dap-go").setup()
+		end,
+	},
 }
