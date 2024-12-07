@@ -1,5 +1,40 @@
 local lsps = {
 	["cssls"] = nil,
+	["emmet_language_server"] = {
+		filetypes = {
+			"css",
+			"eruby",
+			"html",
+			"javascript",
+			"javascriptreact",
+			"less",
+			"sass",
+			"scss",
+			"pug",
+			"templ",
+			"typescriptreact",
+		},
+		init_options = {
+			---@type table<string, string>
+			includeLanguages = {},
+			--- @type string[]
+			excludeLanguages = {},
+			--- @type string[]
+			extensionsPath = {},
+			--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+			preferences = {},
+			--- @type boolean Defaults to `true`
+			showAbbreviationSuggestions = true,
+			--- @type "always" | "never" Defaults to `"always"`
+			showExpandedAbbreviation = "always",
+			--- @type boolean Defaults to `false`
+			showSuggestionsAsSnippets = false,
+			--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+			syntaxProfiles = {},
+			--- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+			variables = {},
+		},
+	},
 	["eslint"] = nil,
 	["denols"] = nil,
 	["lua_ls"] = {
@@ -52,5 +87,19 @@ return {
 				lsp[k].setup(v)
 			end
 		end,
+	},
+
+	-- Emmet integration
+	{
+		"nvim-emmet",
+		ft = lsps["emmet_language_server"].filetypes,
+		keys = {
+			{
+				"<leader>we",
+				":lua require('nvim-emmet').wrap_with_abbreviation()<cr>",
+				desc = "[Emmet] Wrap with emmet abbreviation",
+				mode = { "n", "v" },
+			},
+		},
 	},
 }

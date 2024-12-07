@@ -9,6 +9,7 @@
 
   startPlugins = with pkgs;
   with vimPlugins; [
+    blink-cmp
     catppuccin-nvim
     indent-blankline-nvim
     lze
@@ -27,7 +28,6 @@
   with pkgs.vimPlugins; [
     auto-save-nvim
     auto-session
-    blink-cmp
     cloak-nvim
     conform-nvim
     comment-nvim
@@ -45,9 +45,19 @@
     telescope-nvim
     telescope-fzf-native-nvim
     tmux-nvim
+
+    (vimUtils.buildVimPlugin {
+      pname = "nvim-emmet";
+      version = "v0.4.4";
+      src = fetchGit {
+        url = "https://github.com/olrtg/nvim-emmet";
+        rev = "cde4fb2968704aae5c18b7f8a9bc2508767bb78d";
+      };
+    })
   ];
 
   languageServers = with pkgs; [
+    emmet-language-server
     deno
     gopls
     htmx-lsp
