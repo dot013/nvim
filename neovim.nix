@@ -26,6 +26,7 @@
   optPlugins = with pkgs;
   with pkgs.vimPlugins; [
     auto-save-nvim
+    auto-session
     blink-cmp
     cloak-nvim
     friendly-snippets
@@ -41,7 +42,6 @@
     telescope-nvim
     telescope-fzf-native-nvim
     tmux-nvim
-    vim-obsession
   ];
 
   languageServers = with pkgs; [
