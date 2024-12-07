@@ -116,6 +116,19 @@ return {
 		end,
 	},
 
+	-- Smart comments
+	{
+		"comment.nvim",
+		after = function()
+			require("Comment").setup({
+				mappings = {
+					basic = true,
+					extra = true,
+				},
+			})
+		end,
+	},
+
 	-- Git integration, enabled just in git repos
 	{
 		"gitsigns.nvim",
