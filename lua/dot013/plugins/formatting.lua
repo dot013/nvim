@@ -54,21 +54,23 @@ local formatters_by_ft = {
 }
 
 return {
-	"conform.nvim",
-	ft = (function()
-		local fts = {}
-		for k, _ in pairs(formatters_by_ft) do
-			table.insert(fts, k)
-		end
-		return fts
-	end)(),
-	after = function()
-		require("conform").setup({
-			formatters_by_ft = formatters_by_ft,
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_format = "fallback",
-			},
-		})
-	end,
+	{
+		"conform.nvim",
+		ft = (function()
+			local fts = {}
+			for k, _ in pairs(formatters_by_ft) do
+				table.insert(fts, k)
+			end
+			return fts
+		end)(),
+		after = function()
+			require("conform").setup({
+				formatters_by_ft = formatters_by_ft,
+				format_on_save = {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
+			})
+		end,
+	},
 }
