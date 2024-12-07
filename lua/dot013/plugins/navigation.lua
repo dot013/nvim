@@ -1,4 +1,5 @@
 return {
+	-- File fuzzy finder
 	{
 		"telescope.nvim",
 		cmd = {
@@ -35,9 +36,9 @@ return {
 			require("telescope").load_extension("fzf")
 		end,
 	},
-	-- Telescope dependencies
 	{ "telescope-fzf-native.nvim", dep_of = { "telescope.nvim" } },
 
+	-- File quick switching
 	{
 		"harpoon2",
 		keys = (function()
@@ -104,6 +105,8 @@ return {
 			}
 		end)(),
 	},
+
+	-- Visual jump marks
 	{
 		"marks.nvim",
 		after = function()
@@ -112,6 +115,8 @@ return {
 			})
 		end,
 	},
+
+	-- Tmux panel jumping
 	{
 		"tmux.nvim",
 		keys = {

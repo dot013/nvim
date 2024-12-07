@@ -1,4 +1,5 @@
 return {
+	-- Syntax highlight
 	{
 		"nvim-treesitter",
 		dep_of = { "indent-blankline.nvim" },
@@ -95,7 +96,6 @@ return {
 			})
 		end,
 	},
-	-- Treesitter dependencies
 	{ "nvim-treesitter-textobjects", dep_of = { "nvim-treesitter" } },
 	{ "nvim-treesitter-textsubjects", dep_of = { "nvim-treesitter" } },
 }

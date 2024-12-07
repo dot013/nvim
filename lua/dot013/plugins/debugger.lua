@@ -1,4 +1,5 @@
 return {
+	-- DAP Debugger support
 	{
 		"nvim-dap",
 		keys = {
@@ -25,6 +26,8 @@ return {
 			end
 		end,
 	},
+
+	-- Debugger UI
 	{
 		"nvim-dap-ui",
 		dap_of = { "nvim-dap" },
@@ -37,6 +40,8 @@ return {
 			},
 		},
 	},
+
+	-- Debugger state hover
 	{ "nvim-dap-virtual-text", dep_of = { "nvim-dap" } },
 
 	-- Language specific debuggers

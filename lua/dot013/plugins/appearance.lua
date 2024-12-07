@@ -1,4 +1,5 @@
 return {
+	-- Frappurccino/Catppuccin theme
 	{
 		"catppuccin-nvim",
 		priority = 1000,
@@ -10,6 +11,8 @@ return {
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
+
+	-- Status bar
 	{
 		"lualine.nvim",
 		priority = 1000,
@@ -24,9 +27,9 @@ return {
 			})
 		end,
 	},
-	-- Lualine dependencies
 	{ "nvim-web-devicons", dep_of = { "lualine.nvim" } },
 
+	-- Visual indentation
 	{
 		"indent-blankline.nvim",
 		priority = 1000,

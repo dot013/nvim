@@ -1,4 +1,5 @@
 return {
+	-- Auto saving on file save
 	{
 		"auto-save-nvim",
 		cmd = "ASToggle",
@@ -15,6 +16,7 @@ return {
 		end,
 	},
 
+	-- Completion
 	{
 		"blink-cmp",
 		event = "InsertEnter",
@@ -81,11 +83,13 @@ return {
 	},
 	{ "friendly-snippets", dep_of = { "luasnip" } },
 
+	-- Environment variables and secrets hidding
 	{
 		"cloak-nvim",
 		ft = { "sh" },
 	},
 
+	-- Session restore
 	{
 		"vim-obsession",
 		cmd = "Obsess",

@@ -42,6 +42,7 @@ local lsps = {
 }
 
 return {
+	-- Language Server Protocol (LSP) configuration
 	{
 		"nvim-lspconfig",
 		after = function()
