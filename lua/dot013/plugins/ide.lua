@@ -16,6 +16,25 @@ return {
 		end,
 	},
 
+	-- Session restore, enabled automatically in git repos
+	{
+		"auto-session",
+		lazy = not require("dot013.utils").is_in_cwd(".git"),
+		cmd = {
+			"SessionSave",
+			"SessionRestore",
+			"SessionDelete",
+			"SessionDisableAutoSave",
+			"SessionToggleSave",
+			"SessionPurgeOrphaned",
+			"SessionSearch",
+			"Auutosession",
+		},
+		after = function()
+			require("auto-session").setup()
+		end,
+	},
+
 	-- Completion
 	{
 		"blink-cmp",
@@ -89,9 +108,6 @@ return {
 		ft = { "sh" },
 	},
 
-	-- Session restore
 	{
-		"vim-obsession",
-		cmd = "Obsess",
 	},
 }
