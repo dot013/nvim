@@ -1,7 +1,7 @@
 return {
 	-- Auto saving on file save
 	{
-		"auto-save-nvim",
+		"auto-save.nvim",
 		cmd = "ASToggle",
 		event = { "InsertLeave", "TextChanged" },
 		after = function()
