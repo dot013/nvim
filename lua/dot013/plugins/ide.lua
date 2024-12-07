@@ -104,8 +104,16 @@ return {
 
 	-- Environment variables and secrets hidding
 	{
-		"cloak-nvim",
+		"cloak.nvim",
 		ft = { "sh" },
+		cmd = {
+			"CloakDisable",
+			"CloakEnable",
+			"CloakToggle",
+		},
+		after = function()
+			require("cloak").setup()
+		end,
 	},
 
 	{
