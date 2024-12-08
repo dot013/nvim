@@ -25,8 +25,9 @@ return {
 				desc = "[Telescope] Find in current buffer",
 			},
 			{ "fr", ":lua require('telescope.builtin').oldfiles()<cr>", desc = "[Telescope] Find recent files" },
+			{ "ff", ":lua require('telescope.builtin').git_files()<cr>", desc = "[Telescope] Git files" },
 			{
-				"ff",
+				"<leader>ff",
 				function()
 					require("telescope.builtin").find_files({ no_ignore = true, no_ignore_parent = true, hidden = true })
 				end,
@@ -34,7 +35,6 @@ return {
 			},
 			{ "fw", ":lua require('telescope.builtin').grep_string()<cr>", desc = "[Telescope] Find word" },
 			{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "[Telescope] Find word in all files" },
-			{ "gf", ":lua require('telescope.builtin').git_files()<cr>", desc = "[Telescope] Git files" },
 			{ "fs", ":lua require('telescope.builtin').resume()<cr>", desc = "[Telescope] Resume search" },
 		},
 		after = function()
