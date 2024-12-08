@@ -25,8 +25,8 @@
         f system pkgs);
   in {
     packages = forAllSystems (system: pkgs: {
-      neovim = self.packages.${system}.default;
-      default = pkgs.callPackage ./neovim.nix {};
+      neovim = pkgs.callPackage ./neovim.nix {};
+      default = self.packages.${system}.neovim;
     });
     devShells = forAllSystems (system: pkgs: {
       default = pkgs.mkShell {

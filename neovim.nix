@@ -82,6 +82,11 @@
     vscode-langservers-extracted
   ];
 
+  packages = with pkgs; [
+    ripgrep
+    lf
+  ];
+
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
 
   startPluginsWithDeps = lib.unique (foldPlugins startPlugins);
@@ -128,11 +133,13 @@ in
 
     paths = let
       wrappedNvim = pkgs.writeShellScriptBin "nvim" ''
-        export PATH=${lib.makeBinPath languageServers}:$PATH
+        export PATH=${lib.makeBinPath (languageServers ++ packages)}:$PATH
         ${lib.getExe nvimPkg} "$@"
       '';
     in [wrappedNvim];
+
     nativeBuildInputs = [makeWrapper];
+
     postBuild = ''
       wrapProgram $out/bin/nvim \
         --add-flags '-u' \
@@ -144,5 +151,9 @@ in
 
     passthru = {
       inherit packpath;
+    };
+
+    meta = {
+      mainProgram = "nvim";
     };
   }
