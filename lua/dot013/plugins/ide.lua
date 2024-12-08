@@ -179,4 +179,21 @@ return {
 			})
 		end,
 	},
+
+	-- File explorer
+	{
+		-- (Probably can be replaced by local functions in the config)
+		"tfm.nvim",
+		cmd = { "Ex", "Tfm", "TfmSplit", "TfmVsplit", "TfmTabedit" },
+		keys = {
+			{ "<leader>e", ":Tfm<cr>", desc = "[TFM] Open file manager" },
+		},
+		after = function()
+			require("tfm").setup({
+				file_manager = "lf", -- TODO: Use Yazi (https://github.com/sxyazi/yazi) as file manager
+				replace_netrw = true,
+				enable_cmds = true,
+			})
+		end,
+	},
 }

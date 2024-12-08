@@ -56,6 +56,16 @@
         rev = "cde4fb2968704aae5c18b7f8a9bc2508767bb78d";
       };
     })
+
+    # Probably can be replaced by local functions in the config
+    (vimUtils.buildVimPlugin {
+      pname = "tfm.nvim";
+      version = "2024-04-23";
+      src = fetchGit {
+        url = "https://github.com/Rolv-Apneseth/tfm.nvim";
+        rev = "fb0de2c96bf303216ac5d91ce9bdb7f430030f8b";
+      };
+    })
   ];
 
   languageServers = with pkgs; [
