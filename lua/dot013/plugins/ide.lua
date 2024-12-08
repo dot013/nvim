@@ -42,14 +42,6 @@ return {
 		dep_of = { "nvim-lspconfig" },
 		after = function()
 			require("blink.cmp").setup({
-				completion = {
-					list = {
-						selection = "auto_insert",
-					},
-				},
-				documentation = {
-					auto_show = true,
-				},
 				keymap = {
 					["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 					["<C-e>"] = { "hide", "fallback" },
@@ -79,14 +71,21 @@ return {
 						require("luasnip").jump(direction)
 					end,
 				},
-				sources = {
-					completion = {
-						enabled_providers = {
-							"lsp",
-							"path",
-							"snippets",
-							"buffer",
+				completion = {
+					list = {
+						selection = "auto_insert",
+					},
+					menu = {
+						draw = {
+							padding = { 1, 0 },
+							columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+							components = {
+								kind_icon = { width = { fill = true } },
+							},
 						},
+					},
+					documentation = {
+						auto_show = true,
 					},
 				},
 			})
