@@ -37,6 +37,7 @@
     lualine-nvim
     luasnip
     marks-nvim
+    nvim-autopairs
     nvim-dap
     nvim-dap-go
     nvim-dap-ui
