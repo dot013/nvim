@@ -41,7 +41,7 @@ vim.api.nvim_create_user_command("GripStop", function()
 	end
 end, {})
 
-vim.api.nvim_create_autocmd("QuitPre", {
+vim.api.nvim_create_autocmd({ "QuitPre", "BufDelete" }, {
 	callback = function()
 		if grip_channel then
 			vim.fn.jobstop(grip_channel)
