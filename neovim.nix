@@ -42,6 +42,7 @@
     nvim-dap-go
     nvim-dap-ui
     nvim-dap-virtual-text
+    nvim-ts-autotag
     nvim-web-devicons
     telescope-nvim
     telescope-fzf-native-nvim

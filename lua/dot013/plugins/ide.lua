@@ -167,4 +167,17 @@ return {
 			require("nvim-autopairs").setup()
 		end,
 	},
+
+	-- Auto closing and renaming tags
+	{
+		"nvim-ts-autotag",
+		event = { "BufReadPre", "BufNewFile" },
+		after = function()
+			require("nvim-ts-autotag").setup({
+				aliases = {
+					["templ"] = "html",
+				},
+			})
+		end,
+	},
 }
