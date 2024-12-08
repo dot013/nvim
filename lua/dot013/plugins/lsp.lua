@@ -69,7 +69,12 @@ local lsps = {
 	["html"] = nil,
 	["htmx"] = nil,
 	["jsonls"] = nil,
-	["nil_ls"] = nil,
+	["nil_ls"] = {
+		cmd = { "nil" },
+		filetypes = { "nix" },
+		single_file_support = true,
+		root_dir = nil,
+	},
 	["tailwindcss"] = nil,
 	["templ"] = nil,
 	["ts_ls"] = nil,
