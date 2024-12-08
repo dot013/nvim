@@ -25,7 +25,7 @@ return {
 				desc = "[Telescope] Find in current buffer",
 			},
 			{ "fr", ":lua require('telescope.builtin').oldfiles()<cr>", desc = "[Telescope] Find recent files" },
-			{ "ff", "<cmd>Telescope find_files<cr>", desc = "[Telescope] Find files" },
+			{ "ff", ":Telescope find_files<cr>", desc = "[Telescope] Find files" },
 			{ "fw", ":lua require('telescope.builtin').grep_string()<cr>", desc = "[Telescope] Find word" },
 			{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "[Telescope] Find word in all files" },
 			{ "gf", ":lua require('telescope.builtin').git_files()<cr>", desc = "[Telescope] Git files" },

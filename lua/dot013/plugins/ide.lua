@@ -135,7 +135,7 @@ return {
 		keys = {
 			{
 				"<leader>gt",
-				"<cmd>Gitsigns toggle_current_line_blame<cr>",
+				":Gitsigns toggle_current_line_blame<cr>",
 				desc = "[Git] Toggle line blame",
 			},
 		},
