@@ -9,7 +9,7 @@ return {
 		keys = {
 			{
 				"<leader><space>",
-				":lua require('telescope.builtin').buffers<cr>",
+				":lua require('telescope.builtin').buffers()<cr>",
 				desc = "[Telescope] Find existing buffers",
 			},
 			{
