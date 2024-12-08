@@ -1,4 +1,5 @@
 {
+  self,
   symlinkJoin,
   makeWrapper,
   runCommandLocal,
@@ -83,8 +84,10 @@
   ];
 
   packages = with pkgs; [
-    ripgrep
     lf
+    ripgrep
+
+    self.packages.${pkgs.system}.grip
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
