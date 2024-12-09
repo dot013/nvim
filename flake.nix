@@ -37,6 +37,7 @@
     devShells = forAllSystems (system: pkgs: {
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
+          alejandra
           stylua
         ];
       };
