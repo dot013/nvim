@@ -89,4 +89,6 @@ and/or modify it under the terms of the Do What The Fuck You Want
 To Public License, Version 2, as published by Sam Hocevar. See
 the [LICENSE](./LICENSE) file or http://www.wtfpl.net/ for more details.
 
+> A mirror of this program is also available on https://github.com/dot013/nvim
+
 
