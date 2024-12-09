@@ -57,7 +57,11 @@ return {
 					typescript = js_fmt,
 					typescriptreact = js_fmt,
 					json = function(bufnr)
-						return { table.unpack(js_fmt(bufnr)), "jq" }
+						local fmts = js_fmt(bufnr)
+						if fmts then
+							return fmts
+						end
+						return { "jq" }
 					end,
 
 					-- Fallback for any filetype

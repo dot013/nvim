@@ -86,6 +86,7 @@
   packages = with pkgs; [
     lf
     ripgrep
+    jq
 
     inputs.go-grip.packages.${pkgs.system}.default
   ];
