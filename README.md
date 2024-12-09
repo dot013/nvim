@@ -11,6 +11,16 @@ Minimal Neovim configuration, focused mostly in just coding and text editing.
 - Configured Language Server Protocol (LSP) support, with all used LSPs bundled with the binary;
 - Auto-formatting on save.
 
+### To-Do
+
+- [ ] Move [`go-grip`](https://github.com/chrishrb/go-grip) integration to it's own plugin
+  (similar to [`peek.nvim`](https://github.com/toppair/peek.nvim));
+- [ ] Test configuration as a Neovim plugin;
+- [ ] Use [Yazi](https://github.com/sxyazi/yazi) instead of `lf` as file manager;
+- [ ] Bundle and use default formatters for when no one is available on `PATH`;
+- [ ] Better stylize the editor (mainly pop-overs and hover menus).
+
+
 ## Using
 
 The configuration is mainly intended to be used with the Nix package manager. However,
@@ -73,10 +83,10 @@ This configuration was a learning experience, both on how to wrap programs using
 to better understand NeoVim and it's APIs. I (@Guz013) wouldn't be able to make this config
 without the help and inspiration from:
 
-- Fernando Ayats' (@viperMl on GitHub) blog post on creating a [Neovim wrapper with Nix from scratch](https://ayats.org/blog/neovim-wrapper);
+- Fernando Ayats' blog post on creating a [Neovim wrapper with Nix from scratch](https://ayats.org/blog/neovim-wrapper);
 - Inspirations from [`peek.nvim`](https://github.com/toppair/peek.nvim)'s source-code to be able to
   run CLI applications with the Neovim API;
-- Christoph's (@chirshrb on GitHub) [`go-grip`](https://github.com/chrishrb/go-grip), used as the
+- Christoph's [`go-grip`](https://github.com/chrishrb/go-grip), used as the
   Markdown previewer webserver.
 
 ## License
