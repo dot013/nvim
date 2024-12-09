@@ -56,7 +56,7 @@ module:
 # configuration.nix
 { inputs, ... }: {
     imports = [
-        inputs.dot013-neovim.nixosModules.nvim
+        inputs.dot013-neovim.nixosModules.neovim
     ];
 }
 ```
@@ -64,7 +64,7 @@ module:
 # home.nix
 { inputs, ... }: {
     imports = [
-        inputs.dot013-neovim.homeManagerModules.nvim
+        inputs.dot013-neovim.homeManagerModules.neovim
     ];
 }
 ```
