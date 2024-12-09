@@ -3,6 +3,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    go-grip = {
+      url = "github:guz013/go-grip";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     self,
@@ -23,32 +28,9 @@
         pkgs = import nixpkgs {inherit system overlays;};
       in
         f system pkgs);
-
-    grip = {
-      pkgs,
-      lib,
-    }: let
-      gripConf = pkgs.writeText "settings.py" ''
-        HOST = "0.0.0.0"
-      '';
-      gripHome = pkgs.stdenv.mkDerivation {
-        name = "grip-conf";
-        src = gripConf;
-        phases = ["installPhase"];
-        installPhase = ''
-          mkdir -p $out
-          cp $src $out/settings.py
-        '';
-      };
-    in
-      pkgs.writeShellScriptBin "grip" ''
-        export GRIPHOME="${gripHome}"
-          ${lib.getExe pkgs.python312Packages.grip} "$@"
-      '';
   in {
     packages = forAllSystems (system: pkgs: {
-      grip = pkgs.callPackage grip {};
-      neovim = pkgs.callPackage ./neovim.nix {inherit self;};
+      neovim = pkgs.callPackage ./neovim.nix {inherit inputs;};
       default = self.packages.${system}.neovim;
     });
 

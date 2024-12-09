@@ -16,7 +16,7 @@ vim.api.nvim_create_user_command("GripStart", function()
 
 	local file = vim.api.nvim_buf_get_name(0)
 
-	local cmd = "grip " .. file
+	local cmd = "go-grip -b false -H 0.0.0.0 " .. file
 
 	grip_channel = vim.fn.jobstart(cmd, {
 		stderr_buffered = true,

@@ -1,5 +1,5 @@
 {
-  self,
+  inputs,
   symlinkJoin,
   makeWrapper,
   runCommandLocal,
@@ -87,7 +87,7 @@
     lf
     ripgrep
 
-    self.packages.${pkgs.system}.grip
+    inputs.go-grip.packages.${pkgs.system}.default
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
