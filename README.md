@@ -16,7 +16,7 @@ Minimal Neovim configuration, focused mostly in just coding and text editing.
 - [ ] Move [`go-grip`](https://github.com/chrishrb/go-grip) integration to it's own plugin
   (similar to [`peek.nvim`](https://github.com/toppair/peek.nvim));
 - [ ] Test configuration as a Neovim plugin;
-- [ ] Use [Yazi](https://github.com/sxyazi/yazi) instead of `lf` as file manager;
+- [x] Use [Yazi](https://github.com/sxyazi/yazi) instead of `lf` as file manager;
 - [ ] Bundle and use default formatters for when no one is available on `PATH`;
 - [ ] Better stylize the editor (mainly pop-overs and hover menus).
 

@@ -190,7 +190,7 @@ return {
 		},
 		after = function()
 			require("tfm").setup({
-				file_manager = "lf", -- TODO: Use Yazi (https://github.com/sxyazi/yazi) as file manager
+				file_manager = "yazi",
 				replace_netrw = true,
 				enable_cmds = true,
 			})

@@ -5,8 +5,10 @@
   runCommandLocal,
   pkgs,
   lib,
+  yazi ? pkgs.yazi,
 }: let
   nvimPkg = pkgs.neovim-unwrapped;
+  yaziPkg = yazi;
 
   startPlugins = with pkgs;
   with vimPlugins; [
@@ -89,6 +91,7 @@
     jq
 
     inputs.go-grip.packages.${pkgs.system}.default
+    yaziPkg
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
@@ -173,7 +176,7 @@ in
         terminal = true;
       };
     in ''
-         mkdir -p $out/bin
+      mkdir -p $out/bin
       cp ${lib.getExe nvim-derivation} $out/bin
       mkdir -p $out/share/applications
       cp ${desktopEntry}/share/applications/${pname}.desktop $out/share/applications/${pname}.desktop
