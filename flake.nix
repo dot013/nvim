@@ -34,6 +34,36 @@
       default = self.packages.${system}.neovim;
     });
 
+    legacyPackages = self.packages;
+
+    nixosModules = {
+      neovim = {pkgs, ...}: {
+        programs.neovim = {
+          enable = true;
+          defaultEditor = true;
+          vimAlias = true;
+          viAlias = true;
+          package = self.packages.${pkgs.system}.neovim;
+        };
+      };
+      default = self.nixosModules.neovim;
+    };
+
+    homeManagerModules = {
+      neovim = {pkgs, ...}: {
+        programs.neovim = {
+          enable = true;
+          defaultEditor = true;
+          vimAlias = true;
+          viAlias = true;
+          vimdiffAlias = true;
+          package = self.packages.${pkgs.system}.neovim;
+        };
+      };
+      default = self.homeManagerModules.neovim;
+    };
+    homeManagerModule = self.homeManagerModules;
+
     devShells = forAllSystems (system: pkgs: {
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
