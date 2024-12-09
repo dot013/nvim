@@ -1,5 +1,5 @@
 local lsps = {
-	["cssls"] = nil,
+	["cssls"] = {},
 	["emmet_language_server"] = {
 		filetypes = {
 			"css",
@@ -35,8 +35,8 @@ local lsps = {
 			variables = {},
 		},
 	},
-	["eslint"] = nil,
-	["denols"] = nil,
+	["eslint"] = {},
+	["denols"] = {},
 	["lua_ls"] = {
 		on_init = function(client)
 			if client.workspace_folders then
@@ -65,20 +65,20 @@ local lsps = {
 			},
 		},
 	},
-	["gopls"] = nil,
-	["html"] = nil,
-	["htmx"] = nil,
-	["jsonls"] = nil,
+	["gopls"] = {},
+	["html"] = {},
+	["htmx"] = {},
+	["jsonls"] = {},
 	["nil_ls"] = {
 		cmd = { "nil" },
 		filetypes = { "nix" },
 		single_file_support = true,
 		root_dir = nil,
 	},
-	["tailwindcss"] = nil,
-	["templ"] = nil,
-	["ts_ls"] = nil,
-	["rust_analyzer"] = nil,
+	["tailwindcss"] = {},
+	["templ"] = {},
+	["ts_ls"] = {},
+	["rust_analyzer"] = {},
 }
 
 return {
