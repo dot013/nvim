@@ -25,7 +25,17 @@ return {
 				desc = "[Telescope] Find in current buffer",
 			},
 			{ "fr", ":lua require('telescope.builtin').oldfiles()<cr>", desc = "[Telescope] Find recent files" },
-			{ "ff", ":lua require('telescope.builtin').git_files()<cr>", desc = "[Telescope] Git files" },
+			{
+				"ff",
+				function()
+					if require("dot013.utils").is_in_cwd(".git") then
+						return require("telescope.builtin").git_files()
+					else
+						return require("telescope.builtin").find_files()
+					end
+				end,
+				desc = "[Telescope] Git files",
+			},
 			{
 				"<leader>ff",
 				function()
