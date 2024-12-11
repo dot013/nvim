@@ -50,6 +50,7 @@ return {
 
 						return f
 					end,
+					templ = { "templ" },
 
 					-- JavaScript's ecosystem
 					javascript = js_fmt,
