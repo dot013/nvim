@@ -86,10 +86,13 @@ return {
 	{
 		"nvim-lspconfig",
 		after = function()
+			vim.filetype.add({ extension = { templ = "templ" } })
+
 			local lsp = require("lspconfig")
-			for k, v in pairs(lsps) do
+
+			for k, v in ipairs(lsps) do
 				v.capabilities = require("blink.cmp").get_lsp_capabilities(v.capabilities)
-				lsp[k].setup(v)
+				lsp[k].setup(vim.tbl_deep_extend("force", require("lspconfig.configs")[k], v))
 			end
 		end,
 	},
