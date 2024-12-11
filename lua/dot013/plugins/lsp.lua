@@ -67,7 +67,9 @@ local lsps = {
 	},
 	["gopls"] = {},
 	["html"] = {},
-	["htmx"] = {},
+	["htmx"] = {
+		filetypes = { "html" },
+	},
 	["jsonls"] = {},
 	["nil_ls"] = {
 		cmd = { "nil" },
@@ -75,7 +77,7 @@ local lsps = {
 		single_file_support = true,
 		root_dir = nil,
 	},
-	["tailwindcss"] = {},
+	-- ["tailwindcss"] = {},
 	["templ"] = {},
 	["ts_ls"] = {},
 	["rust_analyzer"] = {},
@@ -86,13 +88,10 @@ return {
 	{
 		"nvim-lspconfig",
 		after = function()
-			vim.filetype.add({ extension = { templ = "templ" } })
-
 			local lsp = require("lspconfig")
-
-			for k, v in ipairs(lsps) do
+			for k, v in pairs(lsps) do
 				v.capabilities = require("blink.cmp").get_lsp_capabilities(v.capabilities)
-				lsp[k].setup(vim.tbl_deep_extend("force", require("lspconfig.configs")[k], v))
+				lsp[k].setup(v)
 			end
 		end,
 	},
