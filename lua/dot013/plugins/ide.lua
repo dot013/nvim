@@ -71,6 +71,14 @@ return {
 						require("luasnip").jump(direction)
 					end,
 				},
+				sources = {
+					default = {
+						"lsp",
+						"path",
+						"snippets",
+						"buffer",
+					},
+				},
 				completion = {
 					list = {
 						selection = "auto_insert",
