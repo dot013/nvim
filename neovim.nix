@@ -101,6 +101,7 @@
     ripgrep
 
     args.go-grip
+    args.yazi
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
