@@ -181,8 +181,10 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		after = function()
 			require("nvim-ts-autotag").setup({
-				aliases = {
-					["templ"] = "html",
+				opts = {
+					enable_close = true,
+					enable_rename = true,
+					enable_close_on_slash = false,
 				},
 			})
 		end,
