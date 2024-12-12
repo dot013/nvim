@@ -91,10 +91,16 @@
     '')
   ];
 
+  formatters = with pkgs; [
+    alejandra
+    shellharden
+    shfmt
+    jq
+  ];
+
   packages = with pkgs; [
     lf
     ripgrep
-    jq
 
     inputs.go-grip.packages.${pkgs.system}.default
     yaziPkg
@@ -146,7 +152,7 @@
 
     paths = let
       wrappedNvim = pkgs.writeShellScriptBin "nvim" ''
-        export PATH=${lib.makeBinPath (languageServers ++ packages)}:$PATH
+        export PATH=${lib.makeBinPath (languageServers ++ formatters ++ packages)}:$PATH
         ${lib.getExe nvimPkg} "$@"
       '';
     in [wrappedNvim];
