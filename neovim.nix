@@ -50,6 +50,7 @@
     telescope-nvim
     telescope-fzf-native-nvim
     tmux-nvim
+    vim-sleuth
 
     (vimUtils.buildVimPlugin {
       pname = "nvim-emmet";

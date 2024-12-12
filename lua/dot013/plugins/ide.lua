@@ -188,6 +188,12 @@ return {
 		end,
 	},
 
+	-- Automatic buffer options and .editorconfig support
+	{
+		"vim-sleuth",
+		event = { "BufReadPre", "BufNewFile" },
+	},
+
 	-- File explorer
 	{
 		-- (Probably can be replaced by local functions in the config)
