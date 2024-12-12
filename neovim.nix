@@ -83,6 +83,11 @@
     typescript-language-server
     rust-analyzer
     vscode-langservers-extracted
+
+    # Temporally solution since there isn't a easy way to install pnpm packages
+    (pkgs.writeShellScriptBin "unocss-language-server" ''
+      ${lib.getExe pkgs.bun} x unocss-language-server@0.1.5 "$@"
+    '')
   ];
 
   packages = with pkgs; [

@@ -81,6 +81,14 @@ local lsps = {
 	["templ"] = {},
 	["ts_ls"] = {},
 	["rust_analyzer"] = {},
+	["unocss"] = function()
+		-- local unocss = require("lspconfig.configs")["unocss"]
+		return {
+			filetypes = {
+				"templ",
+			},
+		}
+	end,
 }
 
 return {
@@ -90,6 +98,10 @@ return {
 		after = function()
 			local lsp = require("lspconfig")
 			for k, v in pairs(lsps) do
+				if type(v) == "function" then
+					v = v()
+				end
+
 				v.capabilities = require("blink.cmp").get_lsp_capabilities(v.capabilities)
 				lsp[k].setup(v)
 			end
