@@ -30,7 +30,9 @@
         f system pkgs);
   in {
     packages = forAllSystems (system: pkgs: {
-      neovim = pkgs.callPackage ./neovim.nix {inherit inputs;};
+      neovim = pkgs.callPackage ./neovim.nix {
+        go-grip = inputs.go-grip.packages.${system}.default;
+      };
       default = self.packages.${system}.neovim;
     });
 

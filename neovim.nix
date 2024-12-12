@@ -1,14 +1,12 @@
 {
-  inputs,
   symlinkJoin,
   makeWrapper,
   runCommandLocal,
   pkgs,
   lib,
-  yazi ? pkgs.yazi,
-}: let
+  ...
+} @ args: let
   nvimPkg = pkgs.neovim-unwrapped;
-  yaziPkg = yazi;
 
   startPlugins = with pkgs;
   with vimPlugins; [
@@ -102,8 +100,7 @@
     lf
     ripgrep
 
-    inputs.go-grip.packages.${pkgs.system}.default
-    yaziPkg
+    args.go-grip
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];

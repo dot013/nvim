@@ -200,6 +200,7 @@ return {
 	{
 		-- (Probably can be replaced by local functions in the config)
 		"tfm.nvim",
+		enabled = vim.fn.executable("yazi"),
 		cmd = { "Ex", "Tfm", "TfmSplit", "TfmVsplit", "TfmTabedit" },
 		keys = {
 			{ "<leader>e", ":Tfm<cr>", desc = "[TFM] Open file manager" },
