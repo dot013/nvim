@@ -11,7 +11,10 @@ local function js_fmt(bufnr)
 		table.insert(f, "eslint_d")
 	end
 
-	if require("conform").get_formatter_info("deno_fmt", bufnr).available then
+	if
+		require("conform").get_formatter_info("deno_fmt", bufnr).available
+		and (require("dot013.utils").is_in_cwd("deno.json") or require("dot013.utils").is_in_cwd("deno.jsonc"))
+	then
 		table.insert(f, "deno_fmt")
 	end
 
