@@ -18,7 +18,8 @@ Minimal Neovim configuration, focused mostly in just coding and text editing.
 - [ ] Test configuration as a Neovim plugin;
 - [x] Use [Yazi](https://github.com/sxyazi/yazi) instead of `lf` as file manager;
 - [ ] Bundle and use default formatters for when no one is available on `PATH`;
-- [ ] Better stylize the editor (mainly pop-overs and hover menus).
+- [ ] Better stylize the editor (mainly pop-overs and hover menus);
+- [ ] Remove `tfm.nvim` and use Neovim APIs to do the same features.
 
 
 ## Using
