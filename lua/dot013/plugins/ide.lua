@@ -203,7 +203,7 @@ return {
 		enabled = vim.fn.executable("yazi"),
 		cmd = { "Ex", "Tfm", "TfmSplit", "TfmVsplit", "TfmTabedit" },
 		keys = {
-			{ "<leader>e", ":Tfm<cr>", desc = "[TFM] Open file manager" },
+			{ "<C-e>", ":Tfm<cr>", desc = "[TFM] Open file manager" },
 		},
 		after = function()
 			require("tfm").setup({

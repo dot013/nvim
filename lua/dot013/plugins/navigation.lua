@@ -91,14 +91,14 @@ return {
 					desc = "[Harpoon] Append to list",
 				},
 				{
-					"<C-e>",
+					"<leader>e",
 					function()
 						toggle_telescope(harpoon():list())
 					end,
 					desc = "[Harpoon] Open quick menu",
 				},
 				{
-					"<C-E>",
+					"<leader>E",
 					function()
 						harpoon().ui:toggle_quick_menu(harpoon():list())
 					end,
