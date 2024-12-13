@@ -1,8 +1,8 @@
 vim.keymap.set("n", "<leader>d", '"_d', { desc = "Delete to void" })
 vim.keymap.set("v", "<leader>d", '"_d', { desc = "Delete to void" })
 
-vim.keymap.set("n", "<leader>w\\", "<cmd>:vsplit<cr>", { desc = "Split the windows vertically" })
-vim.keymap.set("n", "<leader>w/", "<cmd>:split<cr>", { desc = "Split the windows horizontally" })
+vim.keymap.set("n", "<leader>v", "<cmd>:vsplit<cr>", { desc = "Split the windows vertically" })
+vim.keymap.set("n", "<leader>h", "<cmd>:split<cr>", { desc = "Split the windows horizontally" })
 
 vim.keymap.set("n", "s=", "z=", { desc = "Suggest spelling currection" })
 vim.keymap.set("n", "st", function()
@@ -30,4 +30,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 	group = vim.api.nvim_create_augroup("dot013_group", {}),
 })
-
