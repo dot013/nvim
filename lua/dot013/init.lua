@@ -10,3 +10,5 @@ vim.g.lze = {
 }
 
 require("lze").load("dot013.plugins")
+
+require("dot013.keymap")
