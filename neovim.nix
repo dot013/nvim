@@ -74,6 +74,7 @@
     emmet-language-server
     deno
     gopls
+    golangci-lint-langserver
     htmx-lsp
     lua-language-server
     nil

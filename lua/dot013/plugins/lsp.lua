@@ -66,6 +66,7 @@ local lsps = {
 		},
 	},
 	["gopls"] = {},
+	["golangci_lint_ls"] = {},
 	["html"] = {},
 	["htmx"] = {
 		filetypes = { "html" },
