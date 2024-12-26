@@ -7,7 +7,7 @@ Minimal Neovim configuration, focused mostly in just coding and text editing.
 
 - Wrapped `nvim` binary to bundle the Lua configuration (no need to use `~/.config/nvim`);
 - Plugin management done via [Nix](https://nixos.org), with lazy-loading handled by [`lze`](https://github.com/BirdeeHub/lze/);
-- File management done via [`lf`](https://github.com/gokcehan/lf);
+- File management done via [`yazi`](https://github.com/sxyazi/yazi);
 - Configured Language Server Protocol (LSP) support, with all used LSPs bundled with the binary;
 - Auto-formatting on save.
 
