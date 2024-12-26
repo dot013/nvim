@@ -47,6 +47,7 @@
     nvim-web-devicons
     telescope-nvim
     telescope-fzf-native-nvim
+    trouble-nvim
     tmux-nvim
     vim-sleuth
 

@@ -122,4 +122,40 @@ return {
 			},
 		},
 	},
+
+	-- Quickfix list and diagnostics
+	{
+		"trouble.nvim",
+		cmd = { "Trouble" },
+		keys = {
+			{
+				"<leader>t",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "[Trouble] Buffer diagnostics",
+			},
+			{
+				"<leader>te",
+				"<cmd>Trouble diagnostics toggle filter.buf=0 severity=viimi.diagnostics.severity.ERROR<cr>",
+				desc = "[Trouble] Buffer diagnostics",
+			},
+			{
+				"<leader>la",
+				"<cmd>Trouble lsp toggle focus=false win.position=right win.type=split<cr>",
+				desc = "[Trouble] All LSP Definitions & references",
+			},
+			{
+				"<leader>s",
+				"<cmd>Trouble symbols toggle focus=false win.position=right win.type=split<cr>",
+				desc = "[Trouble] Symbols",
+			},
+			{
+				"<leader>q",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "[Trouble] Quickfix list",
+			},
+		},
+		after = function()
+			require("trouble").setup()
+		end,
+	},
 }
