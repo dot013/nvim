@@ -79,7 +79,13 @@ local lsps = {
 		root_dir = nil,
 	},
 	-- ["tailwindcss"] = {},
-	["templ"] = {},
+	["templ"] = function()
+		if vim.fn.executable("templ") then
+			return {}
+		else
+			return nil
+		end
+	end,
 	["ts_ls"] = {},
 	["rust_analyzer"] = {},
 	["unocss"] = function()
@@ -101,6 +107,10 @@ return {
 			for k, v in pairs(lsps) do
 				if type(v) == "function" then
 					v = v()
+				end
+
+				if v == nil then
+					return
 				end
 
 				v.capabilities = require("blink.cmp").get_lsp_capabilities(v.capabilities)
