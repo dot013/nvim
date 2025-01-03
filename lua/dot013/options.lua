@@ -36,7 +36,7 @@ vim.o.scrolloff = 10
 vim.o.colorcolumn = "80"
 
 -- Sync NeoVim and OS clipboards
-vim.o.clipboard = "unnamedplus"
+vim.o.clipboard = ""
 
 -- Highlight search
 vim.o.hlsearch = false

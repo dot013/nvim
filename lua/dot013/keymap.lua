@@ -11,6 +11,9 @@ end, { desc = "Toggle spelling correction" })
 
 vim.keymap.set("n", "<leader>ee", vim.diagnostic.open_float, { desc = "Open diagnostics" })
 
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to system's clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from system's clipboard" })
+
 -- ------
 
 vim.api.nvim_create_autocmd("LspAttach", {
