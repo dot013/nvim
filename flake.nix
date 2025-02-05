@@ -47,19 +47,9 @@
     };
 
     homeManagerModules = {
-      neovim = {pkgs, ...}: {
-        programs.neovim = {
-          enable = true;
-          defaultEditor = true;
-          vimAlias = true;
-          viAlias = true;
-          vimdiffAlias = true;
-          package = self.packages.${pkgs.system}.neovim;
-        };
-      };
+      neovim = (import ./home-manager.nix) {inherit inputs self;};
       default = self.homeManagerModules.neovim;
     };
-    homeManagerModule = self.homeManagerModules;
 
     devShells = forAllSystems (system: pkgs: {
       default = pkgs.mkShell {
