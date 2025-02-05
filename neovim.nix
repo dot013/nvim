@@ -4,10 +4,13 @@
   runCommandLocal,
   pkgs,
   lib,
+  # Dependencies
+  neovim-unwrapped ? pkgs.neovim-unwrapped,
+  yazi ? pkgs.yazi,
+  ripgrep ? pkgs.ripgrep,
+  go-grip,
   ...
-} @ args: let
-  nvimPkg = pkgs.neovim-unwrapped;
-
+}: let
   startPlugins = with pkgs;
   with vimPlugins; [
     blink-cmp
@@ -98,12 +101,10 @@
     jq
   ];
 
-  packages = with pkgs; [
-    lf
+  packages = [
     ripgrep
-
-    args.go-grip
-    args.yazi
+    go-grip
+    yazi
   ];
 
   foldPlugins = builtins.foldl' (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or []))) [];
@@ -128,8 +129,8 @@
 
   initLua = let
     luaPackages = lp: [];
-    luaEnv = nvimPkg.lua.withPackages luaPackages;
-    inherit (nvimPkg.lua.pkgs.luaLib) genLuaPathAbsStr genLuaCPathAbsStr;
+    luaEnv = neovim-unwrapped.lua.withPackages luaPackages;
+    inherit (neovim-unwrapped.lua.pkgs.luaLib) genLuaPathAbsStr genLuaCPathAbsStr;
   in
     pkgs.writeText "init.lua" ''
       -- Don't use LUA_PATH and LUA_CPATH, since they leak into the LSP
@@ -153,7 +154,7 @@
     paths = let
       wrappedNvim = pkgs.writeShellScriptBin "nvim" ''
         export PATH=${lib.makeBinPath (languageServers ++ formatters ++ packages)}:$PATH
-        ${lib.getExe nvimPkg} "$@"
+        ${lib.getExe neovim-unwrapped} "$@"
       '';
     in [wrappedNvim];
 
@@ -193,4 +194,7 @@ in
       mkdir -p $out/share/applications
       cp ${desktopEntry}/share/applications/${pname}.desktop $out/share/applications/${pname}.desktop
     '';
+  }
+  // {
+    inherit (neovim-unwrapped) description meta;
   }
