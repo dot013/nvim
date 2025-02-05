@@ -42,15 +42,7 @@
     legacyPackages = self.packages;
 
     nixosModules = {
-      neovim = {pkgs, ...}: {
-        programs.neovim = {
-          enable = true;
-          defaultEditor = true;
-          vimAlias = true;
-          viAlias = true;
-          package = self.packages.${pkgs.system}.neovim;
-        };
-      };
+      neovim = (import ./home-manager.nix) {inherit inputs self;};
       default = self.nixosModules.neovim;
     };
 
