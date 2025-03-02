@@ -7,9 +7,6 @@
     go-grip = {
       url = "github:guz013/go-grip";
     };
-    yazi = {
-      url = "github:sxyazi/yazi";
-    };
   };
   outputs = {
     self,
@@ -34,7 +31,6 @@
     packages = forAllSystems (system: pkgs: {
       neovim = pkgs.callPackage ./neovim.nix {
         go-grip = inputs.go-grip.packages.${system}.default;
-        yazi = inputs.yazi.packages.${system}.default;
       };
       default = self.packages.${system}.neovim;
     });
