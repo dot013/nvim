@@ -81,7 +81,7 @@ return {
 				},
 				completion = {
 					list = {
-						selection = "auto_insert",
+						selection = { preselect = true, auto_insert = true },
 					},
 					menu = {
 						draw = {
@@ -96,6 +96,8 @@ return {
 						auto_show = true,
 					},
 				},
+				-- FRIZBEE is not currently available under nixpkgs.
+				fuzzy = { implementation = "lua" },
 			})
 		end,
 	},
