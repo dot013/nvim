@@ -76,7 +76,7 @@ local lsps = {
 		single_file_support = true,
 		root_dir = nil,
 	},
-	-- ["tailwindcss"] = {},
+	["tailwindcss"] = {},
 	["ts_ls"] = {},
 	["rust_analyzer"] = {},
 }
