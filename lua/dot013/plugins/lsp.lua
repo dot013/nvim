@@ -1,39 +1,7 @@
 local lsps = {
 	["cssls"] = {},
 	["emmet_language_server"] = {
-		filetypes = {
-			"css",
-			"eruby",
-			"html",
-			"javascript",
-			"javascriptreact",
-			"less",
-			"sass",
-			"scss",
-			"pug",
-			"templ",
-			"typescriptreact",
-		},
-		init_options = {
-			---@type table<string, string>
-			includeLanguages = {},
-			--- @type string[]
-			excludeLanguages = {},
-			--- @type string[]
-			extensionsPath = {},
-			--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
-			preferences = {},
-			--- @type boolean Defaults to `true`
-			showAbbreviationSuggestions = true,
-			--- @type "always" | "never" Defaults to `"always"`
-			showExpandedAbbreviation = "always",
-			--- @type boolean Defaults to `false`
-			showSuggestionsAsSnippets = false,
-			--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
-			syntaxProfiles = {},
-			--- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
-			variables = {},
-		},
+		filetypes = require("lspconfig.configs.emmet_language_server").default_config.filetypes,
 	},
 	["eslint"] = {},
 	["denols"] = {},
@@ -97,6 +65,7 @@ return {
 				end
 
 				v.capabilities = require("blink.cmp").get_lsp_capabilities(v.capabilities)
+
 				lsp[k].setup(v)
 			end
 		end,
