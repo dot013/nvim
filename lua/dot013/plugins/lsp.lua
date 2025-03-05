@@ -77,23 +77,8 @@ local lsps = {
 		root_dir = nil,
 	},
 	-- ["tailwindcss"] = {},
-	["templ"] = function()
-		if vim.fn.executable("templ") then
-			return {}
-		else
-			return nil
-		end
-	end,
 	["ts_ls"] = {},
 	["rust_analyzer"] = {},
-	["unocss"] = function()
-		-- local unocss = require("lspconfig.configs")["unocss"]
-		return {
-			filetypes = {
-				"templ",
-			},
-		}
-	end,
 }
 
 return {
