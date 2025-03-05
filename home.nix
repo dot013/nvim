@@ -29,7 +29,7 @@ in
     config = mkIf cfg.enable {
       home.sessionVariables = {EDITOR = "nvim";};
 
-      home.programs = [cfg.package];
+      home.packages = [cfg.package];
 
       programs.bash.shellAliases = mkIf cfg.vimdiffAlias {vimdiff = "nvim -d";};
       programs.fish.shellAliases = mkIf cfg.vimdiffAlias {vimdiff = "nvim -d";};
