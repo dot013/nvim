@@ -97,7 +97,7 @@ return {
 					},
 				},
 				-- FRIZBEE is not currently available under nixpkgs.
-				fuzzy = { implementation = "lua" },
+				fuzzy = { implementation = "prefer_rust" },
 			})
 		end,
 	},

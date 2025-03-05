@@ -7,6 +7,11 @@
       url = "github:guz013/go-grip";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    blink-cmp = {
+      url = "github:Saghen/blink.cmp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     self,
@@ -36,7 +41,9 @@
       neovim = import ./package.nix {
         inherit pkgs lib;
         go-grip = inputs.go-grip.packages.${pkgs.system}.default;
+        blink-cmp = inputs.blink-cmp.packages.${pkgs.system}.default;
       };
+      default = self.packages."${pkgs.system}".neovim;
     });
   };
 }

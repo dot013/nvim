@@ -6,9 +6,13 @@
   go-grip ? null,
   yazi ? pkgs.yazi,
   ...
-}: let
+} @ args: let
   start = with pkgs.vimPlugins; [
-    blink-cmp
+    (
+      if args ? blink-cmp
+      then args.blink-cmp
+      else blink-cmp
+    )
     catppuccin-nvim
     indent-blankline-nvim
     lze
