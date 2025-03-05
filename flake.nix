@@ -51,7 +51,7 @@
       default = self.nixosModules.neovim;
     };
     homeManagerModules = {
-      neovim = import ./nixos.nix {inherit self;};
+      neovim = import ./home.nix {inherit self;};
       default = self.homeManagerModules.neovim;
     };
   };
