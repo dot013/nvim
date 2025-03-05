@@ -68,9 +68,7 @@ local lsps = {
 	["gopls"] = {},
 	["golangci_lint_ls"] = {},
 	["html"] = {},
-	["htmx"] = {
-		filetypes = { "html" },
-	},
+	-- ["htmx"] = {}, # BORKED: blink.cmp stops working whtn htmx-lsp is attached https://github.com/Saghen/blink.cmp/issues/825
 	["jsonls"] = {},
 	["nil_ls"] = {
 		cmd = { "nil" },
