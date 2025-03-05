@@ -8,7 +8,7 @@
   cfg = config.neovim;
 in
   with lib; {
-    options = {
+    options.neovim = {
       enable = mkOption {
         type = with types; bool;
         default = true;
