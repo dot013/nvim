@@ -45,6 +45,11 @@
       };
       default = self.packages."${pkgs.system}".neovim;
     });
+
+    nixosModules = {
+      neovim = import ./nixos.nix {inherit self;};
+      default = self.nixosModules.neovim;
+    };
     homeManagerModules = {
       neovim = import ./nixos.nix {inherit self;};
       default = self.homeManagerModules.neovim;
