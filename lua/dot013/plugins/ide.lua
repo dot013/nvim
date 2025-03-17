@@ -96,7 +96,6 @@ return {
 						auto_show = true,
 					},
 				},
-				-- FRIZBEE is not currently available under nixpkgs.
 				fuzzy = { implementation = "prefer_rust" },
 			})
 		end,
