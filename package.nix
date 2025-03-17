@@ -47,6 +47,7 @@
     nvim-nio
     nvim-ts-autotag
     nvim-web-devicons
+    tailwind-tools-nvim
     telescope-nvim
     telescope-fzf-native-nvim
     trouble-nvim

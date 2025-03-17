@@ -5,7 +5,7 @@ return {
 		cmd = {
 			"Telescope",
 		},
-		dep_of = { "harpoon2" },
+		dep_of = { "harpoon2", "tailwind-tools.nvim" },
 		keys = {
 			{
 				"<leader><space>",
@@ -24,7 +24,7 @@ return {
 				end,
 				desc = "[Telescope] Find in current buffer",
 			},
-			{ "fr", ":lua require('telescope.builtin').oldfiles()<cr>", desc = "[Telescope] Find recent files" },
+			{ "fr",         ":lua require('telescope.builtin').oldfiles()<cr>",    desc = "[Telescope] Find recent files" },
 			{
 				"ff",
 				function()
@@ -43,9 +43,9 @@ return {
 				end,
 				desc = "[Telescope] Find files",
 			},
-			{ "fw", ":lua require('telescope.builtin').grep_string()<cr>", desc = "[Telescope] Find word" },
-			{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "[Telescope] Find word in all files" },
-			{ "fs", ":lua require('telescope.builtin').resume()<cr>", desc = "[Telescope] Resume search" },
+			{ "fw",         ":lua require('telescope.builtin').grep_string()<cr>", desc = "[Telescope] Find word" },
+			{ "<leader>fw", "<cmd>Telescope live_grep<cr>",                        desc = "[Telescope] Find word in all files" },
+			{ "fs",         ":lua require('telescope.builtin').resume()<cr>",      desc = "[Telescope] Resume search" },
 		},
 		after = function()
 			require("telescope").setup()
@@ -136,10 +136,10 @@ return {
 	{
 		"tmux.nvim",
 		keys = {
-			{ "<C-h>", ":lua require('tmux').move_left()<cr>", desc = "[Tmux] Move to left pane" },
+			{ "<C-h>", ":lua require('tmux').move_left()<cr>",   desc = "[Tmux] Move to left pane" },
 			{ "<C-j>", ":lua require('tmux').move_bottom()<cr>", desc = "[Tmux] Move to bottom pane" },
-			{ "<C-k>", ":lua require('tmux').move_top()<cr>", desc = "[Tmux] Move to top pane" },
-			{ "<C-l>", ":lua require('tmux').move_right()<cr>", desc = "[Tmux] Move to right pane" },
+			{ "<C-k>", ":lua require('tmux').move_top()<cr>",    desc = "[Tmux] Move to top pane" },
+			{ "<C-l>", ":lua require('tmux').move_right()<cr>",  desc = "[Tmux] Move to right pane" },
 		},
 		after = function()
 			require("tmux").setup()

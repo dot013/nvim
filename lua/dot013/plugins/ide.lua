@@ -197,6 +197,16 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 	},
 
+	-- Tailwind integration
+	{
+		"tailwind-tools.nvim",
+		after = function()
+			-- TODO: Fork the project to remove root_dir clauses in LSP config,
+			-- since Tailwind v4 doesn't use tailwind.config.js
+			require("tailwind-tools").setup()
+		end
+	},
+
 	-- File explorer
 	{
 		-- (Probably can be replaced by local functions in the config)
