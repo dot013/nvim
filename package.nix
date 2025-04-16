@@ -80,6 +80,7 @@
     gopls
     golangci-lint-langserver
     htmx-lsp
+    lemminx
     lua-language-server
     nil
     tailwindcss-language-server
