@@ -5,6 +5,9 @@ local lsps = {
 	},
 	["eslint"] = {},
 	["denols"] = {},
+	["lemminx"] = {
+		filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "xhtml" },
+	},
 	["lua_ls"] = {
 		on_init = function(client)
 			if client.workspace_folders then
