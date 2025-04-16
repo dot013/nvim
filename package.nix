@@ -93,6 +93,7 @@
     alejandra
     jq
     libxml2
+    prettierd
     shellharden
     shfmt
   ];
