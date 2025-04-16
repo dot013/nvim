@@ -45,6 +45,13 @@
       };
       default = self.packages."${pkgs.system}".neovim;
     });
+    devShells = forAllSystems ({pkgs, ...}: {
+      default = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          stylua
+        ];
+      };
+    });
 
     nixosModules = {
       neovim = import ./nixos.nix {inherit self;};
