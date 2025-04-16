@@ -204,7 +204,7 @@ return {
 			-- TODO: Fork the project to remove root_dir clauses in LSP config,
 			-- since Tailwind v4 doesn't use tailwind.config.js
 			require("tailwind-tools").setup()
-		end
+		end,
 	},
 
 	-- File explorer

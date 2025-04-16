@@ -97,14 +97,14 @@ return {
 
 			local LANGUAGE_ALIASES = {
 				{ from = "dataviewjs", to = "javascript" },
-				{ from = "js",         to = "javascript" },
-				{ from = "ts",         to = "typescript" },
+				{ from = "js", to = "javascript" },
+				{ from = "ts", to = "typescript" },
 			}
 			for _, v in pairs(LANGUAGE_ALIASES) do
 				vim.treesitter.language.register(v.to, v.from)
 			end
 		end,
 	},
-	{ "nvim-treesitter-textobjects",  dep_of = { "nvim-treesitter" } },
+	{ "nvim-treesitter-textobjects", dep_of = { "nvim-treesitter" } },
 	{ "nvim-treesitter-textsubjects", dep_of = { "nvim-treesitter" } },
 }
