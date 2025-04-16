@@ -91,9 +91,10 @@
 
   formatters = with pkgs; [
     alejandra
+    jq
+    libxml2
     shellharden
     shfmt
-    jq
   ];
 
   externalDependencies = [
