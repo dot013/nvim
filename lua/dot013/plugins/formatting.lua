@@ -34,6 +34,8 @@ return {
 					nix = { "alejandra" },
 					rust = { "rustfmt", lsp_format = "fallback" },
 					sh = { "shellharden", "shfmt" },
+					xml = { "xmllint" },
+					xhtml = { "xmllint" },
 
 					-- Golang's formatters used by priority
 					go = function(bufnr)
