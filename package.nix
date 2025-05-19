@@ -50,6 +50,7 @@
     tailwind-tools-nvim
     telescope-nvim
     telescope-zf-native-nvim
+    telescope-undo-nvim
     trouble-nvim
     tmux-nvim
     vim-sleuth

@@ -54,13 +54,16 @@ return {
 				desc = "[Telescope] Find word in all files",
 			},
 			{ "fs", ":lua require('telescope.builtin').resume()<cr>", desc = "[Telescope] Resume search" },
+			{ "<leader>u", "<cmd>Telescope undo<cr>", desc = "[Telescope] Undo history" },
 		},
 		after = function()
 			require("telescope").setup()
 			require("telescope").load_extension("zf-native")
+			require("telescope").load_extension("undo")
 		end,
 	},
 	{ "telescope-zf-native.nvim", dep_of = { "telescope.nvim" } },
+	{ "telescope-undo.nvim", dep_of = { "telescope.nvim" } },
 
 	-- File quick switching
 	{
