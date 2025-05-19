@@ -5,7 +5,7 @@ return {
 		cmd = {
 			"Telescope",
 		},
-		dep_of = { "harpoon2", "tailwind-tools.nvim" },
+		dep_of = { "tailwind-tools.nvim" },
 		keys = {
 			{
 				"<leader><space>",
@@ -77,21 +77,6 @@ return {
 				end
 				return h
 			end
-			local function toggle_telescope(harpoon_files)
-				local telescopeConf = require("telescope.config").values
-				local file_paths = {}
-				for _, item in ipairs(harpoon_files.items) do
-					table.insert(file_paths, item.value)
-				end
-				require("telescope.pickers")
-					.new({}, {
-						prompt_title = "Harpoon",
-						finder = require("telescope.finders").new_table({ results = file_paths }),
-						previewer = telescopeConf.file_previewer({}),
-						sorter = telescopeConf.generic_sorter({}),
-					})
-					:find()
-			end
 
 			return {
 				{
@@ -104,7 +89,7 @@ return {
 				{
 					"<leader>e",
 					function()
-						toggle_telescope(harpoon():list())
+						harpoon().ui:toggle_quick_menu(harpoon():list())
 					end,
 					desc = "[Harpoon] Open quick menu",
 				},
