@@ -57,10 +57,10 @@ return {
 		},
 		after = function()
 			require("telescope").setup()
-			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("zf-native")
 		end,
 	},
-	{ "telescope-fzf-native.nvim", dep_of = { "telescope.nvim" } },
+	{ "telescope-zf-native.nvim", dep_of = { "telescope.nvim" } },
 
 	-- File quick switching
 	{

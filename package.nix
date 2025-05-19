@@ -49,7 +49,7 @@
     nvim-web-devicons
     tailwind-tools-nvim
     telescope-nvim
-    telescope-fzf-native-nvim
+    telescope-zf-native-nvim
     trouble-nvim
     tmux-nvim
     vim-sleuth
