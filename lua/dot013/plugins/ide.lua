@@ -44,15 +44,16 @@ return {
 			require("blink.cmp").setup({
 				keymap = {
 					["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-					["<C-h>"] = { "hide", "fallback" },
 
-					["<C-l>"] = { "accept", "fallback" },
+					["<Left>"] = { "hide", "fallback" },
+					["<Right>"] = { "accept", "fallback" },
+					["<CR>"] = { "accept", "fallback" },
 
-					["<C-k>"] = { "select_prev", "snippet_backward", "fallback" },
-					["<C-j>"] = { "select_next", "snippet_forward", "fallback" },
-					["<C-K>"] = { "scroll_documentation_up", "fallback" },
+					["<Up>"] = { "select_prev", "snippet_backward", "fallback" },
+					["<Down>"] = { "select_next", "snippet_forward", "fallback" },
 
-					["<C-J>"] = { "scroll_documentation_down", "fallback" },
+					["<C-Up>"] = { "scroll_documentation_up", "fallback" },
+					["<C-Down>"] = { "scroll_documentation_down", "fallback" },
 				},
 				snippets = {
 					expand = function(snippet)
@@ -70,9 +71,9 @@ return {
 				},
 				sources = {
 					default = {
+						"snippets",
 						"lsp",
 						"path",
-						"snippets",
 						"buffer",
 					},
 				},
