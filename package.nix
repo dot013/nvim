@@ -85,6 +85,7 @@
     lemminx
     lua-language-server
     nil
+    marksman
     tailwindcss-language-server
     typescript-language-server
     rust-analyzer

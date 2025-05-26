@@ -47,6 +47,7 @@ local lsps = {
 		single_file_support = true,
 		root_dir = nil,
 	},
+	["marksman"] = {},
 	["ts_ls"] = {},
 	["rust_analyzer"] = {},
 }
