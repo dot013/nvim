@@ -95,12 +95,7 @@ return {
 		keys = {
 			{
 				"<leader>t",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "[Trouble] Buffer diagnostics",
-			},
-			{
-				"<leader>te",
-				"<cmd>Trouble diagnostics toggle filter.buf=0 severity=viimi.diagnostics.severity.ERROR<cr>",
+				"<cmd>Trouble diagnostics toggle severity=vim.diagnostic.severity.ERROR<cr>",
 				desc = "[Trouble] Buffer diagnostics",
 			},
 			{
