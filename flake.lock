@@ -101,6 +101,22 @@
         "type": "github"
       }
     },
+    "mdfmt": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1543379285,
+        "narHash": "sha256-5LQ7S/CZXCa/zrUcIbDfD2Ji8Kjc3/Cengw8UmVOU4g=",
+        "owner": "moorereason",
+        "repo": "mdfmt",
+        "rev": "29e3d55cbe5af4cfc31b172aed1d69b9a5a22c5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "moorereason",
+        "repo": "mdfmt",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1740828860,
@@ -133,6 +149,7 @@
       "inputs": {
         "blink-cmp": "blink-cmp",
         "go-grip": "go-grip",
+        "mdfmt": "mdfmt",
         "nixpkgs": "nixpkgs"
       }
     },

@@ -3,14 +3,17 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    blink-cmp = {
+      url = "github:Saghen/blink.cmp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     go-grip = {
       url = "github:guz013/go-grip";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    blink-cmp = {
-      url = "github:Saghen/blink.cmp";
-      inputs.nixpkgs.follows = "nixpkgs";
+    mdfmt = {
+      url = "github:moorereason/mdfmt";
+      flake = false;
     };
   };
   outputs = {
@@ -40,8 +43,14 @@
     }: {
       neovim = import ./package.nix {
         inherit pkgs lib;
-        go-grip = inputs.go-grip.packages.${pkgs.system}.default;
         blink-cmp = inputs.blink-cmp.packages.${pkgs.system}.default;
+        go-grip = inputs.go-grip.packages.${pkgs.system}.default;
+        mdfmt = self.packages.${pkgs.system}.mdfmt;
+      };
+      mdfmt = pkgs.buildGoModule {
+        name = "mdfmt";
+        src = inputs.mdfmt;
+        vendorHash = "sha256-JtYvDgjUoEc1Mp7Eq8lbu9jWI+RR9yBo4ujGY+J70J4=";
       };
       default = self.packages."${pkgs.system}".neovim;
     });
