@@ -36,11 +36,11 @@ return {
 					sh = { "shellharden", "shfmt" },
 					xml = { "xmllint" },
 					xhtml = { "xmllint" },
+					markdown = { "mdfmt" },
 
 					html = { "prettierd", "prettier", stop_after_first = true },
 					css = { "prettierd", "prettier", stop_after_first = true },
 					yaml = { "prettierd", "prettier", stop_after_first = true },
-					markdown = { "prettierd", "prettier", stop_after_first = true },
 
 					-- Golang's formatters used by priority
 					go = function(bufnr)
@@ -82,6 +82,11 @@ return {
 				format_on_save = {
 					timeout_ms = 500,
 					lsp_format = "fallback",
+				},
+				formatters = {
+					mdfmt = {
+						command = "mdfmt",
+					},
 				},
 			})
 		end,

@@ -3,6 +3,7 @@
   lib,
   neovim ? pkgs.neovim,
   ripgrep ? pkgs.ripgrep,
+  mdfmt ? null,
   go-grip ? null,
   yazi ? pkgs.yazi,
   ...
@@ -94,6 +95,7 @@
     alejandra
     jq
     libxml2
+    mdfmt
     prettierd
     shellharden
     shfmt
