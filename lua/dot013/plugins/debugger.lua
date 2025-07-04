@@ -8,12 +8,12 @@ return {
 			"nvim-dap-go",
 		},
 		keys = {
-			{ "<leader>b", ":lua require('dap').toggle_breakpoint()<cr>", "[Debugger] Toggle breakpoint" },
-			{ "<leader>x", ":lua require('dap').continue()<cr>", "[Debugger] Continue debugger" },
-			{ "<leader>X", ":lua require('dap').terminate()<cr>", "[Debugger] Terminate debugger" },
-			{ "<leader>C", ":lua require('dap').clear_breakpoints()<cr>", "[Debugger] Clear all breakpoints" },
+			{ "<leader>b",  ":lua require('dap').toggle_breakpoint()<cr>", "[Debugger] Toggle breakpoint" },
+			{ "<leader>x",  ":lua require('dap').continue()<cr>",          "[Debugger] Continue debugger" },
+			{ "<leader>X",  ":lua require('dap').terminate()<cr>",         "[Debugger] Terminate debugger" },
+			{ "<leader>C",  ":lua require('dap').clear_breakpoints()<cr>", "[Debugger] Clear all breakpoints" },
 			-- UI
-			{ "<leader>xu", ":lua require('dapui').toggle()<cr>", "[Debugger] Toggle debugger UI" },
+			{ "<leader>xu", ":lua require('dapui').toggle()<cr>",          "[Debugger] Toggle debugger UI" },
 			{
 				"<leader>K",
 				":lua require('dapui').eval(nil, { enter = true })<cr>",
