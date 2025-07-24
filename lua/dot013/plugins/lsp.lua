@@ -71,6 +71,10 @@ return {
 
 				lsp[k].setup(v)
 			end
+
+			vim.diagnostic.config({
+				virtual_text = true,
+			})
 		end,
 	},
 
