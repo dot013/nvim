@@ -2,32 +2,32 @@
   pkgs,
   lib,
   neovim ? pkgs.neovim,
+  blink-cmp ? pkgs.vimPlugins.blink-cmp,
   ripgrep ? pkgs.ripgrep,
   mdfmt ? null,
   go-grip ? null,
   yazi ? pkgs.yazi,
   ...
-} @ args: let
-  start = with pkgs.vimPlugins; [
-    (
-      if args ? blink-cmp
-      then args.blink-cmp
-      else blink-cmp
-    )
-    catppuccin-nvim
-    indent-blankline-nvim
-    lze
-    nvim-lspconfig
-    nvim-treesitter.withAllGrammars
-    nvim-treesitter-textobjects
-    nvim-treesitter-textsubjects
+}: let
+  start =
+    (with pkgs.vimPlugins; [
+      catppuccin-nvim
+      indent-blankline-nvim
+      lze
+      nvim-lspconfig
+      nvim-treesitter.withAllGrammars
+      nvim-treesitter-textobjects
+      nvim-treesitter-textsubjects
 
-    ((pkgs.vimUtils.buildVimPlugin {
-        name = "dot013.nvim";
-        src = ./.;
-      })
-      .overrideAttrs {doCheck = false;})
-  ];
+      ((pkgs.vimUtils.buildVimPlugin {
+          name = "dot013.nvim";
+          src = ./.;
+        })
+        .overrideAttrs {doCheck = false;})
+    ])
+    ++ [
+      blink-cmp
+    ];
   opt = with pkgs.vimPlugins; [
     auto-save-nvim
     auto-session
@@ -55,6 +55,15 @@
     trouble-nvim
     tmux-nvim
     vim-sleuth
+
+    (pkgs.vimUtils.buildVimPlugin {
+      pname = "aw-watcher.nvim";
+      version = "master";
+      src = fetchGit {
+        url = "https://github.com/lowitea/aw-watcher.nvim";
+        rev = "be7b03748f59b6602502baf08e7f7736cc7279a5";
+      };
+    })
 
     (pkgs.vimUtils.buildVimPlugin {
       pname = "nvim-emmet";

@@ -4,7 +4,6 @@
   pkgs,
   ...
 }: let
-  neovim = self.packages.${pkgs.system}.default;
   cfg = config.neovim;
 in
   with lib; {
@@ -15,7 +14,8 @@ in
       };
       package = mkOption {
         type = with types; package;
-        default = neovim;
+        default = self.packages.${pkgs.system}.default;
+        readOnly = true;
       };
       defaultEditor = mkOption {
         type = with types; bool;
@@ -24,7 +24,6 @@ in
     };
     config = mkIf cfg.enable {
       environment.variables = {EDITOR = "nvim";};
-
       environment.systemPackages = [cfg.package];
 
       # Disable NixOS's Neovim

@@ -1,10 +1,10 @@
 {self}: {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
 }: let
-  neovim = self.packages.${pkgs.system}.default;
   cfg = config.neovim;
 in
   with lib; {
@@ -15,7 +15,7 @@ in
       };
       package = mkOption {
         type = with types; package;
-        default = neovim;
+        default = self.packages.${pkgs.system}.default;
       };
       vimdiffAlias = mkOption {
         type = with types; bool;
@@ -28,7 +28,6 @@ in
     };
     config = mkIf cfg.enable {
       home.sessionVariables = {EDITOR = "nvim";};
-
       home.packages = [cfg.package];
 
       programs.bash.shellAliases = mkIf cfg.vimdiffAlias {vimdiff = "nvim -d";};
