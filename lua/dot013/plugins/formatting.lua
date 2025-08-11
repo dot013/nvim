@@ -34,8 +34,8 @@ return {
 					nix = { "alejandra" },
 					rust = { "rustfmt", lsp_format = "fallback" },
 					sh = { "shellharden", "shfmt" },
-					xml = { "xmllint" },
-					xhtml = { "xmllint" },
+					xml = { "xmllint", "xmltidy" },
+					xhtml = { "xmllint", "xmltidy" },
 					markdown = { "mdfmt" },
 
 					html = { "prettierd", "prettier", stop_after_first = true },
@@ -86,6 +86,12 @@ return {
 				formatters = {
 					mdfmt = {
 						command = "mdfmt",
+					},
+					-- Uses HTML Tidy
+					xmltidy = {
+						inherit = false,
+						command = "tidy",
+						args = { "-xml", "-indent", "yes", "2", "-wrap", "100", "-" },
 					},
 				},
 			})

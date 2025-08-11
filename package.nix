@@ -104,6 +104,7 @@
   formatters = with pkgs; [
     alejandra
     jq
+    html-tidy
     libxml2
     mdfmt
     prettierd
