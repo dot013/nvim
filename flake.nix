@@ -61,6 +61,7 @@
         ];
       };
     });
+    formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
 
     nixosModules = {
       neovim = import ./nixos.nix {inherit self;};
