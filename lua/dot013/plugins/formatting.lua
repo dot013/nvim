@@ -31,7 +31,7 @@ return {
 				formatters_by_ft = {
 					-- Simple formatters
 					lua = { "stylua" },
-					nix = { "alejandra" },
+					nix = { --[[ "nixcmdfmt", ]] "alejandra", stop_after_first = true },
 					rust = { "rustfmt", lsp_format = "fallback" },
 					sh = { "shellharden", "shfmt" },
 					xml = { "xmllint", "xmltidy" },
@@ -87,12 +87,20 @@ return {
 					mdfmt = {
 						command = "mdfmt",
 					},
-					-- Uses HTML Tidy
 					xmltidy = {
 						inherit = false,
+						-- Uses HTML Tidy
 						command = "tidy",
 						args = { "-xml", "-indent", "yes", "2", "-wrap", "100", "-" },
 					},
+					--[[ nixcmdfmt = {
+						inherit = false,
+						stdin = false,
+						cwd = require("conform.util").root_file({ "flake.nix" }),
+						require_cwd = true,
+						command = "nix",
+						args = { "fmt", "$FILENAME" },
+					}, ]]
 				},
 			})
 		end,
