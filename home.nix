@@ -27,7 +27,9 @@ in
       };
     };
     config = mkIf cfg.enable {
-      home.sessionVariables = {EDITOR = "nvim";};
+      home.sessionVariables = {
+        EDITOR = "nvim";
+      };
       home.packages = [cfg.package];
 
       programs.bash.shellAliases = mkIf cfg.vimdiffAlias {vimdiff = "nvim -d";};

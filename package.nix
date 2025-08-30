@@ -19,11 +19,13 @@
       nvim-treesitter-textobjects
       nvim-treesitter-textsubjects
 
-      ((pkgs.vimUtils.buildVimPlugin {
+      (
+        (pkgs.vimUtils.buildVimPlugin {
           name = "dot013.nvim";
           src = ./.;
-        })
-        .overrideAttrs {doCheck = false;})
+        }).overrideAttrs
+        {doCheck = false;}
+      )
     ])
     ++ [
       blink-cmp

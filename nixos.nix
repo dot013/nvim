@@ -23,7 +23,9 @@ in
       };
     };
     config = mkIf cfg.enable {
-      environment.variables = {EDITOR = "nvim";};
+      environment.variables = {
+        EDITOR = "nvim";
+      };
       environment.systemPackages = [cfg.package];
 
       # Disable NixOS's Neovim
