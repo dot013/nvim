@@ -45,7 +45,7 @@ local lsps = {
 		end
 	end,
 	["html"] = {},
-	-- ["htmx"] = {}, # BORKED: blink.cmp stops working whtn htmx-lsp is attached https://github.com/Saghen/blink.cmp/issues/825
+	["htmx"] = {},
 	["jsonls"] = {},
 	["nil_ls"] = {
 		cmd = { "nil" },
