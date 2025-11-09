@@ -37,7 +37,13 @@ local lsps = {
 		},
 	},
 	["gopls"] = {},
-	["golangci_lint_ls"] = {},
+	["golangci_lint_ls"] = function()
+		if vim.fn.executable("golangci-list") == 1 then
+			return {}
+		else
+			return nil
+		end
+	end,
 	["html"] = {},
 	-- ["htmx"] = {}, # BORKED: blink.cmp stops working whtn htmx-lsp is attached https://github.com/Saghen/blink.cmp/issues/825
 	["jsonls"] = {},
