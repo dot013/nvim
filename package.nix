@@ -54,6 +54,7 @@
     telescope-nvim
     telescope-zf-native-nvim
     telescope-undo-nvim
+    todo-comments-nvim
     trouble-nvim
     tmux-nvim
     vim-sleuth

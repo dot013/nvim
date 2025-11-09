@@ -205,6 +205,14 @@ return {
 		end,
 	},
 
+	-- Todo comments explorer
+	{
+		"todo-comments.nvim",
+		after = function()
+			require("todo-comments").setup()
+		end,
+	},
+
 	-- File explorer
 	{
 		-- (Probably can be replaced by local functions in the config)

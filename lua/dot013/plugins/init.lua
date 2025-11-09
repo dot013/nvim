@@ -9,5 +9,8 @@ return {
 	{ import = "dot013.plugins.treesitter" },
 
 	-- Global Dependencies
-	{ "plenary.nvim", dep_of = { "telescope.nvim", "harpoon" } },
+	{
+		"plenary.nvim",
+		dep_of = { "harpoon", "telescope.nvim", "todo-comments.nvim" },
+	},
 }
