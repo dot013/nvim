@@ -34,7 +34,7 @@
         in
           f {
             inherit pkgs;
-            inherit (pkgs) lib;
+            inherit (pkgs) lib stdenv;
           }
       );
   in {
@@ -44,20 +44,21 @@
       {
         pkgs,
         lib,
+        stdenv,
         ...
       }: {
         neovim = import ./package.nix {
           inherit pkgs lib;
-          blink-cmp = inputs.blink-cmp.packages.${pkgs.system}.default;
-          go-grip = inputs.go-grip.packages.${pkgs.system}.default;
-          mdfmt = self.packages.${pkgs.system}.mdfmt;
+          blink-cmp = inputs.blink-cmp.packages.${stdenv.hostPlatform.system}.default;
+          go-grip = inputs.go-grip.packages.${stdenv.hostPlatform.system}.default;
+          mdfmt = self.packages.${stdenv.hostPlatform.system}.mdfmt;
         };
         mdfmt = pkgs.buildGoModule {
           name = "mdfmt";
           src = inputs.mdfmt;
           vendorHash = "sha256-JtYvDgjUoEc1Mp7Eq8lbu9jWI+RR9yBo4ujGY+J70J4=";
         };
-        default = self.packages."${pkgs.system}".neovim;
+        default = self.packages."${stdenv.hostPlatform.system}".neovim;
       }
     );
     devShells = forAllSystems (
