@@ -63,19 +63,22 @@ return {
 	{
 		"nvim-lspconfig",
 		after = function()
-			for k, v in pairs(lsps) do
-				if type(v) == "function" then
-					v = v()
+			local blink = require("blink.cmp")
+			for server, config in pairs(lsps) do
+				if type(config) == "function" then
+					config = config()
 				end
 
-				if v == nil then
+				if config == nil then
 					return
 				end
 
-				v.capabilities = require("blink.cmp").get_lsp_capabilities(v.capabilities)
+				-- config.capabilities = blink.get_lsp_capabilities(config.capabilities)
 
-				vim.lsp.enable(k)
-				vim.lsp.config(k, v)
+				vim.lsp.enable(server)
+				if next(config) ~= nil then
+					vim.lsp.config(server, config)
+				end
 			end
 
 			vim.diagnostic.config({
