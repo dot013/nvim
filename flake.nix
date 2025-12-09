@@ -38,8 +38,7 @@
         stdenv,
         ...
       }: {
-        neovim = import ./package.nix {
-          inherit pkgs lib;
+        neovim = pkgs.callPackage ./package.nix {
           mdfmt = self.packages.${stdenv.hostPlatform.system}.mdfmt;
         };
         mdfmt = pkgs.buildGoModule {
