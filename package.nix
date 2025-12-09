@@ -5,7 +5,7 @@
   blink-cmp ? pkgs.vimPlugins.blink-cmp,
   ripgrep ? pkgs.ripgrep,
   mdfmt ? null,
-  go-grip ? null,
+  go-grip ? pkgs.go-grip,
   yazi ? pkgs.yazi,
   ...
 }: let
