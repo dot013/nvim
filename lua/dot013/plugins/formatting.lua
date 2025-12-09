@@ -31,7 +31,10 @@ return {
 				formatters_by_ft = {
 					-- Simple formatters
 					lua = { "stylua" },
-					nix = { --[[ "nixcmdfmt", ]] "alejandra", stop_after_first = true },
+					nix = { --[[ "nixcmdfmt", ]]
+						"alejandra",
+						stop_after_first = true,
+					},
 					rust = { "rustfmt", lsp_format = "fallback" },
 					sh = { "shellharden", "shfmt" },
 					xml = { "xmllint", "xmltidy" },
