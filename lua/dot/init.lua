@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+---- Plugins
+require("dot.plugins")
+
 -- Filetype plugins
 vim.o.filetype = "on"
 
