@@ -204,4 +204,39 @@ lze.load({
 	},
 
 	-- Auto-saving
+	{
+		"auto-save.nvim",
+		after = function()
+			require("auto-save").setup({
+				condition = function(buf)
+					if vim.bo[buf].filetype == "harpoon" then
+						return false
+					end
+					return true
+				end,
+			})
+		end,
+		cmd = "ASToggle",
+		event = { "InsertLeave", "TextChanged" },
+	},
+
+	-- Session restore in git repos
+	{
+		"auto-session",
+		after = function()
+			require("auto-session").setup()
+		end,
+		cmd = {
+			"SessionSave",
+			"SessionRestore",
+			"SessionDelete",
+			"SessionDisableAutoSave",
+			"SessionToggleSave",
+			"SessionPurgeOrphaned",
+			"SessionSearch",
+			"Auutosession",
+		},
+		lazy = not (#(vim.fs.root(0, ".git") or 0) > 0),
+	},
+
 })
