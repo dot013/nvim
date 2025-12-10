@@ -249,4 +249,59 @@ lze.load({
 		event = "BufEnter",
 	},
 
+	-- Treesitter
+	{
+		"nvim-treesitter",
+		dep_of = "indent-blankline.nvim",
+		on_require = "nvim-treesitter",
+	},
+	{ "nvim-treesitter-textobjects", dep_of = "nvim-treesitter" },
+	{ "nvim-treesitter-textsubjects", dep_of = "nvim-treesitter" },
+
+	-- Appearance
+	{
+		"catppuccin-nvim",
+		after = function()
+			require("catppuccin").setup({
+				flavour = "mocha",
+				transparent_background = true,
+			})
+		end,
+	},
+	{
+		"indent-blankline.nvim",
+		after = function()
+			require("ibl").setup()
+		end,
+		event = "BufEnter",
+	},
+
+	-- Git signs
+	{
+		"gitsigns.nvim",
+		after = function()
+			require("gitsigns").setup({
+				signs = {
+					add = { text = "+" },
+					change = { text = "~" },
+					delete = { text = "+" },
+					topdelete = { text = "-" },
+					changedelete = { text = "~" },
+				},
+				current_line_blame = false,
+				current_line_blame_opts = {
+					delay = 0,
+				},
+			})
+		end,
+		cmd = "Gitsigns",
+		keys = {
+			{
+				"<leader>gt",
+				":Gitsigns toggle_current_line_blame<cr>",
+				desc = "[Git] Toggle line blame",
+			},
+		},
+		lazy = not (#vim.fs.root(0, ".git") > 0),
+	},
 })
