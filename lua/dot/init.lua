@@ -87,6 +87,7 @@ vim.diagnostic.config({
 	},
 })
 
+require("dot.commands")
 require("dot.keymaps")
 
 require("nvim-treesitter.configs").setup({
