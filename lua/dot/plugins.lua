@@ -249,6 +249,20 @@ lze.load({
 		event = "BufEnter",
 	},
 
+	-- Secrets hiding
+	{
+		"cloak.nvim",
+		after = function()
+			require("cloak").setup()
+		end,
+		cmd = {
+			"CloakDisable",
+			"CloakEnable",
+			"CloakToggle",
+		},
+		ft = { "sh" },
+	},
+
 	-- Treesitter
 	{
 		"nvim-treesitter",
