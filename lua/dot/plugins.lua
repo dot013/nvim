@@ -133,6 +133,56 @@ lze.load({
 		on_require = "conform",
 	},
 
+	-- Autocomplete
+	{
+		"blink-cmp",
+		after = function()
+			require("blink.cmp").setup({
+				completion = {
+					list = { selection = { preselect = true, auto_insert = true } },
+					menu = {
+						draw = {
+							padding = { 1, 0 },
+							columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+							components = {
+								kind_icon = { width = { fill = true } },
+							},
+						},
+					},
+					documentation = { auto_show = true },
+				},
+				fuzzy = { implementation = "prefer_rust" },
+				keymap = {
+					["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+
+					["<Left>"] = { "hide", "fallback" },
+					["<Right>"] = { "accept", "fallback" },
+					["<CR>"] = { "accept", "fallback" },
+
+					["<Up>"] = { "select_prev", "snippet_backward", "fallback" },
+					["<Down>"] = { "select_next", "snippet_forward", "fallback" },
+
+					["<C-Up>"] = { "scroll_documentation_up", "fallback" },
+					["<C-Down>"] = { "scroll_documentation_down", "fallback" },
+				},
+				sources = {
+					default = { "snippets", "lazydev", "lsp", "path", "buffer" },
+					providers = {
+						lazydev = {
+							name = "LazyDev",
+							module = "lazydev.integrations.blink",
+							score_offset = 100,
+						},
+					},
+				},
+			})
+		end,
+		cmd = "ConformInfo",
+		event = "InsertEnter",
+		on_require = "blink",
+	},
+	{ "friendly-snippets", dep_of = "blink-cmp" },
+
 	-- Fuzzy Finding
 	{
 		"telescope.nvim",
