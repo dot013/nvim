@@ -38,12 +38,7 @@ vim.keymap.set("n", "<leader>e", ":lua require('harpoon').ui:toggle_quick_menu(r
 	desc = "Harpoon: Add file to list",
 })
 
-vim.keymap.set(
-	"n",
-	"<C-e>",
-	vim.fn.executable("yazi") and require("dot.tfm").open or ":Ex",
-	{ desc = "Open file manager" }
-)
+vim.keymap.set("n", "<C-e>", ":Ex<cr>", { desc = "Open file manager" })
 
 -- Fuzzy find
 vim.keymap.set("n", "ff", ":lua require('telescope.builtin').find_files()<cr>", { desc = "Telescope: [F]ind [F]iles" })
