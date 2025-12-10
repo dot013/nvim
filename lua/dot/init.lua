@@ -84,3 +84,5 @@ vim.diagnostic.config({
 	},
 })
 
+require("dot.keymaps")
+

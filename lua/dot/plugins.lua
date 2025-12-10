@@ -3,6 +3,8 @@ local lze = require("lze")
 
 lze.register_handlers(require("lzextras").lsp)
 lze.load({
+	{ "plenary.nvim", dep_of = { "harpoon", "telescope.nvim" } },
+
 	-- Language Server Protocol
 	{
 		"nvim-lspconfig",
@@ -18,4 +20,25 @@ lze.load({
 	},
 	{ "lazydev.nvim", on_require = "lazydev" },
 	{ import = "dot.lsp" },
+	-- Fuzzy Finding
+	{
+		"telescope.nvim",
+		after = function()
+			require("telescope").load_extension("zf-native")
+		end,
+		cmd = { "Telescope" },
+		on_require = "telescope",
+	},
+	{ "telescope-zf-native.nvim", dep_of = "telescope.nvim" },
+
+	-- File quick switching
+	{
+		"harpoon2",
+		after = function()
+			require("harpoon"):setup()
+		end,
+		on_require = "harpoon",
+	},
+
+	-- Auto-saving
 })
