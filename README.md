@@ -37,7 +37,7 @@ you can run the configured Neovim binary with just:
 nix run git+https://forge.capytal.company/dot013/nvim
 
 # GitHub mirror
-niix run github:dot013/nvim
+nix run github:dot013/nvim
 ```
 
 It also can be used as a NixOS or [Home-Manager](https://github.com/nix-community/home-manager)

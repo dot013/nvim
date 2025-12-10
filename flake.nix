@@ -41,6 +41,9 @@
         neovim = pkgs.callPackage ./package.nix {
           mdfmt = self.packages.${stdenv.hostPlatform.system}.mdfmt;
         };
+          godot-neovim = pkgs.writeShellApplication {
+            name = "godot-neovim";
+          };
         mdfmt = pkgs.buildGoModule {
           name = "mdfmt";
           src = inputs.mdfmt;

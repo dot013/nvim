@@ -86,3 +86,49 @@ vim.diagnostic.config({
 
 require("dot.keymaps")
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking text",
+	group = vim.api.nvim_create_augroup("dot-highlight-yank", { clear = true }),
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("dot-lsp-attach-autocmds", { clear = true }),
+	callback = function(e)
+		local client = vim.lsp.get_client_by_id(e.data.client_id)
+
+		-- Highlight references of word under cursor when it rests for a little while
+		if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, e.buf) then
+			local highlight_augroup = vim.api.nvim_create_augroup("dot-lsp-highlight", { clear = false })
+
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				buffer = e.buf,
+				callback = vim.lsp.buf.document_highlight,
+				group = highlight_augroup,
+			})
+
+			vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				buffer = e.buf,
+				callback = vim.lsp.buf.clear_references,
+				group = highlight_augroup,
+			})
+
+			vim.api.nvim_create_autocmd("LspDetach", {
+				callback = function(e2)
+					vim.lsp.buf.clear_references()
+					vim.api.nvim_clear_autocmds({ group = "dot-lsp-attach-autocmds", buffer = e2.buf })
+				end,
+				group = vim.api.nvim_create_augroup("dot-lsp-detach-autocmds", { clear = true }),
+			})
+		end
+
+		-- Toggle inlay hints
+		if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, e.buf) then
+			vim.keymap.set("n", "<leader>lh", function()
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = e.buf }))
+			end, { desc = "LSP: [T]oggle Inlay [H]ints" })
+		end
+	end,
+})
