@@ -239,4 +239,14 @@ lze.load({
 		lazy = not (#(vim.fs.root(0, ".git") or 0) > 0),
 	},
 
+	-- Formatting
+	{
+		"guess-indent.nvim",
+		after = function()
+			require("guess-indent").setup()
+		end,
+		cmd = "GuessIndent",
+		event = "BufEnter",
+	},
+
 })
