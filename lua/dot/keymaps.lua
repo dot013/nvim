@@ -20,6 +20,13 @@ vim.keymap.set("n", "/", ":lua require('telescope.builtin').current_buffer_fuzzy
 	desc = "Telescope: Find in current buffer",
 })
 
+-- Spelling
+
+vim.keymap.set("n", "s=", "z=", { desc = "Suggest spelling currection" })
+vim.keymap.set("n", "st", function()
+	vim.o.spell = not vim.o.spell
+end, { desc = "Toggle spelling correction" })
+
 -- Language Server Protocol & Actions
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("n", "<leader>t", vim.diagnostic.open_float, { desc = "Open diagnostic" })
