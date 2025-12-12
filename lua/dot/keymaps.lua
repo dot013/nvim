@@ -1,5 +1,25 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- Navigation
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-l>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+vim.keymap.set("n", "<leader>w", ":lua require('harpoon'):list():add()<cr>", { desc = "Harpoon: Add file to list" })
+vim.keymap.set("n", "<leader>e", ":lua require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())<cr>", {
+	desc = "Harpoon: Add file to list",
+})
+
+vim.keymap.set("n", "<C-e>", ":Ex<cr>", { desc = "Open file manager" })
+
+-- Fuzzy find
+vim.keymap.set("n", "ff", ":lua require('telescope.builtin').find_files()<cr>", { desc = "Telescope: [F]ind [F]iles" })
+vim.keymap.set("n", "fw", ":lua require('telescope.builtin').live_grep()<cr>", { desc = "Telescope: [F]ind [W]ord" })
+vim.keymap.set("n", "/", ":lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", {
+	desc = "Telescope: Find in current buffer",
+})
+
 -- Language Server Protocol & Actions
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("n", "<leader>t", vim.diagnostic.open_float, { desc = "Open diagnostic" })
@@ -25,24 +45,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gW", ":lua require('telescope.builtin').lsp_dynamic_workspace_symbols", "Open [W]orkspace Symbols")
 	end,
 	group = vim.api.nvim_create_augroup("dot-lsp-attach-keymaps", { clear = true }),
-})
-
--- Navigation
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-l>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-
-vim.keymap.set("n", "<leader>w", ":lua require('harpoon'):list():add()<cr>", { desc = "Harpoon: Add file to list" })
-vim.keymap.set("n", "<leader>e", ":lua require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())<cr>", {
-	desc = "Harpoon: Add file to list",
-})
-
-vim.keymap.set("n", "<C-e>", ":Ex<cr>", { desc = "Open file manager" })
-
--- Fuzzy find
-vim.keymap.set("n", "ff", ":lua require('telescope.builtin').find_files()<cr>", { desc = "Telescope: [F]ind [F]iles" })
-vim.keymap.set("n", "fw", ":lua require('telescope.builtin').live_grep()<cr>", { desc = "Telescope: [F]ind [W]ord" })
-vim.keymap.set("n", "/", ":lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", {
-	desc = "Telescope: Find in current buffer",
 })
