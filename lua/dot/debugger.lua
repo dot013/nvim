@@ -16,3 +16,7 @@ dap.listeners.before.event_exited.dapui_config = function()
 	dapui.close()
 end
 
+-- Languages
+
+-- Go
+require("dap-go").setup()
