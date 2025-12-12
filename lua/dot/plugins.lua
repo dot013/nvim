@@ -21,6 +21,17 @@ lze.load({
 	{ "lazydev.nvim", on_require = "lazydev" },
 	{ import = "dot.lsp" },
 
+	-- Debugger
+	{
+		"nvim-dap",
+		after = function()
+			require("dot.debugger")
+		end,
+		on_require = { "dap", "dapui" },
+	},
+	{ "nvim-dap-ui", dep_of = "nvim-dap" },
+	{ "nvim-nio", dep_of = "nvim-dap-ui" },
+
 	-- Formatting
 	{
 		"conform.nvim",

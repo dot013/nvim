@@ -46,3 +46,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 	group = vim.api.nvim_create_augroup("dot-lsp-attach-keymaps", { clear = true }),
 })
+
+-- Debugger
+vim.keymap.set("n", "<leader>b", ":lua require('dap').toggle_breakpoint()<cr>", {
+	desc = "Debugger: Toggle [B]reakpointn",
+})
+vim.keymap.set("n", "<leader>x", ":lua require('dap').continue()<cr>", { desc = "Debugger: Continue debugger" })
+vim.keymap.set("n", "<leader>X", ":lua require('dap').terminate()<cr>", { desc = "Debugger: Terminate debugger" })
+vim.keymap.set("n", "<leader>C", ":lua require('dap').clear_breakpoints()<cr>", {
+	desc = "Debugger: Clear all breakpoints",
+})
+vim.keymap.set("n", "<leader>xu", ":lua require('dapui').toggle()<cr>", { desc = "Debugger: Toggle debugger [U]I" })
+vim.keymap.set("n", "<leader>K", ":lua require('dapui').eval(nil, { enter=true })<cr>", {
+	desc = "Debugger: Toggle debugger [U]I",
+})
