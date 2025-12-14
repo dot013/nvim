@@ -8,6 +8,7 @@ lze.load({
 	-- Language Server Protocol
 	{
 		"nvim-lspconfig",
+		dep_of = { "godotdev" },
 		---@param plugin lze.Plugin
 		lsp = function(plugin)
 			local config = plugin.lsp or {}
@@ -27,6 +28,7 @@ lze.load({
 		after = function()
 			require("dot.debugger")
 		end,
+		dep_of = { "godotdev.nvim" },
 		on_require = { "dap", "dapui" },
 	},
 	{ "nvim-dap-ui", dep_of = "nvim-dap" },
@@ -180,7 +182,7 @@ lze.load({
 	-- Treesitter (Syntax Highlighting)
 	{
 		"nvim-treesitter",
-		dep_of = "indent-blankline.nvim",
+		dep_of = { "godotdev", "indent-blankline.nvim" },
 		on_require = "nvim-treesitter",
 	},
 	{ "nvim-treesitter-textobjects", dep_of = "nvim-treesitter" },
@@ -249,7 +251,14 @@ lze.load({
 		end,
 	},
 	{
-		"godot.nvim",
-		cmd = { "GodotDebug", "GodotBreakAtCursor", "GodotStep", "GodotQuit", "GodotContinue" },
+		"godotdev.nvim",
+		after = function()
+			require("godotdev").setup({
+				autostart_editor_server = true,
+			})
+		end,
+		cmd = { "GodotReconnectLSP", "GodotStartEditorServer" },
+		ft = { "gd", "gdscript", "gdshader", "gdscript3" },
+		on_require = "godotdev",
 	},
 })

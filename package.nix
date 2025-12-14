@@ -4,6 +4,14 @@
   neovim ? pkgs.neovim,
   mdfmt ? null,
   yazi ? pkgs.yazi,
+  godotdev ? (pkgs.vimUtils.buildVimPlugin {
+    pname = "godotdev.nvim";
+    version = "v0.2.3";
+    src = fetchGit {
+      url = "https://github.com/Mathijs-Bakker/godotdev.nvim";
+      rev = "79d9315988b7772c03a1cabb6f31f5287c849e2b";
+    };
+  }),
   ...
 }: let
   dot-nvim = pkgs.vimUtils.buildVimPlugin {
@@ -86,14 +94,7 @@ in
             rev = "be7b03748f59b6602502baf08e7f7736cc7279a5";
           };
         })
-        (pkgs.vimUtils.buildVimPlugin {
-          pname = "godot.nvim";
-          version = "v0.4.4";
-          src = fetchGit {
-            url = "https://github.com/Lommix/godot.nvim";
-            rev = "349b6b088c15447843fc21b60ba7267b8b49d821";
-          };
-        })
+        godotdev
       ];
       # inherit start opt;
     };
@@ -105,6 +106,7 @@ in
 
           vscode-langservers-extracted # cssls, eslint, html, jsonls, typescript
 
+          docker-language-server
           emmet-language-server
           golangci-lint-langserver
           gopls
@@ -115,6 +117,7 @@ in
           nil
           rust-analyzer
           tailwindcss-language-server
+          typescript-language-server
         ]
         ++ [
           # INFO: Formatters

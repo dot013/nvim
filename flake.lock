@@ -1,5 +1,17 @@
 {
   "nodes": {
+    "godotdev": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-q8Ej78SeZkVt5LxLdJJopVYY1qFdKaObkmZzwJFv1cE=",
+        "type": "file",
+        "url": "file:///home/guz/.projects/guz013-godotdev-nvim"
+      },
+      "original": {
+        "type": "file",
+        "url": "file:///home/guz/.projects/guz013-godotdev-nvim"
+      }
+    },
     "mdfmt": {
       "flake": false,
       "locked": {
@@ -34,6 +46,7 @@
     },
     "root": {
       "inputs": {
+        "godotdev": "godotdev",
         "mdfmt": "mdfmt",
         "nixpkgs": "nixpkgs"
       }
