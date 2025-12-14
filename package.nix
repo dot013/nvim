@@ -48,6 +48,9 @@ in
         conform-nvim
         guess-indent-nvim
 
+        # Auto Complete
+        nvim-autopairs
+
         # Fuzzy Finding
         telescope-nvim
         telescope-zf-native-nvim # Dependency

@@ -99,6 +99,13 @@ lze.load({
 		on_require = "blink",
 	},
 	{ "friendly-snippets", dep_of = "blink-cmp" },
+	{
+		"nvim-autopairs",
+		after = function()
+			require("nvim-autopairs").setup()
+		end,
+		event = "InsertEnter",
+	},
 
 	-- Fuzzy Finding
 	{
