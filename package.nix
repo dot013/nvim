@@ -137,6 +137,7 @@ in
           # INFO: External dependencies
 
           go-grip # Reference: ./lua/dot/commands.lua#Grip markdown reader
+          ripgrep # Reference ./lua/dot/plugins.lua#telescope.nvim
           yazi # Reference ./lua/dot/commands.lua#Yazi file manager
           zf # Reference ./lua/dot/plugins.lua#telescope-zf-native.nvim
         ]);
