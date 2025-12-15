@@ -162,7 +162,7 @@ lze.load({
 			"SessionSearch",
 			"Auutosession",
 		},
-		lazy = not (#(vim.fs.root(0, ".git") or 0) > 0),
+		lazy = not (#(vim.fs.root(0, ".git") or {}) > 0),
 	},
 
 	-- Secrets hiding
@@ -232,7 +232,7 @@ lze.load({
 				desc = "[Git] Toggle line blame",
 			},
 		},
-		lazy = not (#vim.fs.root(0, ".git") > 0),
+		lazy = not (#(vim.fs.root(0, ".git") or {}) > 0),
 	},
 
 	-- Todo comments
