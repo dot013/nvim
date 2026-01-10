@@ -8,8 +8,9 @@
     };
 
     godotdev = {
+      url = "git+https://code.capytal.cc/dot013/godotdev.nvim";
       # url = "github:Mathijs-Bakker/godotdev.nvim";
-      url = "git+file:///home/guz/.projects/guz013-godotdev-nvim";
+      # url = "git+file:///home/guz/.projects/guz013-godotdev-nvim";
       flake = false;
     };
   };
