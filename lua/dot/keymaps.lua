@@ -7,6 +7,8 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-l>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 vim.keymap.set("n", "<leader>w", ":lua require('harpoon'):list():add()<cr>", { desc = "Harpoon: Add file to list" })
+vim.keymap.set("n", "<C-p>", ":lua require('harpoon'):list():prev()<cr>", { desc = "Harpoon: Previous file" })
+vim.keymap.set("n", "<C-n>", ":lua require('harpoon'):list():next()<cr>", { desc = "Harpoon: Next file" })
 vim.keymap.set("n", "<leader>e", ":lua require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())<cr>", {
 	desc = "Harpoon: Add file to list",
 })
