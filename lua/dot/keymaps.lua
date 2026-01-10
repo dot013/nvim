@@ -41,15 +41,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode or "n", lhs, rhs, { buffer = e.buf, desc = "LSP: " .. desc })
 		end
 
-		map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
-		map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
-		map("grr", ":lua require('telescope.builtin').lsp_references<cr>", "[G]oto [R]eferences")
-		map("gri", ":lua require('telescope.builtin').lsp_implementations<cr>", "[G]oto [I]mplementation")
-		map("grd", ":lua require('telescope.builtin').lsp_definitions", "[G]oto [D]efinition")
-		map("grt", ":lua require('telescope.builtin').lsp_type_definitions", "[G]oto [T]ype Definition")
-		map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-		map("gO", ":lua require('telescope.builtin').lsp_document_symbols", "[O]pen Document Symbols")
-		map("gW", ":lua require('telescope.builtin').lsp_dynamic_workspace_symbols", "Open [W]orkspace Symbols")
+		map("gn", vim.lsp.buf.rename, "Re[n]ame")
+		map("ga", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+		map("gr", ":lua require('telescope.builtin').lsp_references()<cr>", "[G]oto [R]eferences")
+		map("gi", ":lua require('telescope.builtin').lsp_implementations()<cr>", "[G]oto [I]mplementation")
+		map("gd", ":lua require('telescope.builtin').lsp_definitions()<cr>", "[G]oto [D]efinition")
+		map("gt", ":lua require('telescope.builtin').lsp_type_definitions()<cr>", "[G]oto [T]ype Definition")
+		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration<cr>")
+		map("gO", ":lua require('telescope.builtin').lsp_document_symbols()<cr>", "[O]pen Document Symbols")
+		map("gW", ":lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>", "Open [W]orkspace Symbols")
 	end,
 	group = vim.api.nvim_create_augroup("dot-lsp-attach-keymaps", { clear = true }),
 })
