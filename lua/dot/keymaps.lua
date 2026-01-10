@@ -58,8 +58,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.keymap.set("n", "<leader>b", ":lua require('dap').toggle_breakpoint()<cr>", {
 	desc = "Debugger: Toggle [B]reakpointn",
 })
-vim.keymap.set("n", "<leader>x", ":lua require('dap').continue()<cr>", { desc = "Debugger: Continue debugger" })
-vim.keymap.set("n", "<leader>X", ":lua require('dap').terminate()<cr>", { desc = "Debugger: Terminate debugger" })
+vim.keymap.set("n", "<F5>", ":lua require('dap').continue()<cr>", { desc = "Debugger: Continue debugger" })
+vim.keymap.set("n", "<F8>", ":lua require('dap').terminate()<cr>", { desc = "Debugger: Terminate debugger" })
 vim.keymap.set("n", "<leader>C", ":lua require('dap').clear_breakpoints()<cr>", {
 	desc = "Debugger: Clear all breakpoints",
 })
