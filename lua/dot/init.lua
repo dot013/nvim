@@ -1,9 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
----- Plugins
-require("dot.plugins")
-
 -- Filetype plugins
 vim.o.filetype = "on"
 
@@ -27,9 +24,6 @@ vim.o.shiftwidth = 4
 vim.o.breakindent = true
 vim.o.list = true
 vim.opt.listchars = { tab = "│ ", trail = ".", nbsp = "␣" }
-
--- Theme
-vim.cmd.colorscheme("catppuccin")
 
 ----
 
@@ -87,8 +81,14 @@ vim.diagnostic.config({
 	},
 })
 
+---- Plugins
+require("dot.plugins")
+
 require("dot.commands")
 require("dot.keymaps")
+
+-- Theme
+vim.cmd.colorscheme("catppuccin")
 
 require("nvim-treesitter.configs").setup({
 	auto_install = false,
