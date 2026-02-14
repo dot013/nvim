@@ -19,6 +19,15 @@ return {
 		},
 	},
 	{
+		"docker-language-server",
+		lsp = {
+			filetypes = {
+				"dockerfile",
+				"yaml.docker-compose",
+			},
+		},
+	},
+	{
 		"emmet_language_server",
 		lsp = {
 			filetypes = {
