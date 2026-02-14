@@ -2,6 +2,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nvim-treesitter-main.url = "github:iofq/nvim-treesitter-main";
+
     mdfmt = {
       url = "github:moorereason/mdfmt";
       flake = false;
@@ -28,7 +30,18 @@
     forAllSystems = f:
       nixpkgs.lib.genAttrs systems (
         system: let
-          pkgs = import nixpkgs {inherit system;};
+          overlays = [
+            inputs.nvim-treesitter-main.overlays.default
+            (final: prev: {
+              vimPlugins = prev.vimPlugins.extend (f: p: {
+                nvim-treesitter = p.nvim-treesitter.withAllGrammars;
+                nvim-treesitter-textobjects = p.nvim-treesitter-textobjects.overrideAttrs {
+                  dependencies = [f.nvim-treesitter];
+                };
+              });
+            })
+          ];
+          pkgs = import nixpkgs {inherit system overlays;};
         in
           f {
             inherit pkgs;

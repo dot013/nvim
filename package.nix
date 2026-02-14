@@ -37,9 +37,9 @@ in
         friendly-snippets # Snippets
 
         # Treesitter (Syntax Highlighting)
-        nvim-treesitter.withAllGrammars
-        nvim-treesitter-textobjects # Dependency
-        nvim-treesitter-textsubjects # Dependency
+        nvim-treesitter
+        # nvim-treesitter-textobjects # Dependency
+        # nvim-treesitter-textsubjects # Dependency
 
         (dot-nvim.overrideAttrs {doCheck = false;})
       ];

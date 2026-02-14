@@ -182,11 +182,26 @@ lze.load({
 	-- Treesitter (Syntax Highlighting)
 	{
 		"nvim-treesitter",
+		after = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = require("nvim-treesitter.config").get_installed(),
+				callback = function()
+					vim.treesitter.start()
+				end,
+			})
+		end,
+		event = "FileType",
 		dep_of = { "godotdev", "indent-blankline.nvim" },
 		on_require = "nvim-treesitter",
 	},
-	{ "nvim-treesitter-textobjects", dep_of = "nvim-treesitter" },
-	{ "nvim-treesitter-textsubjects", dep_of = "nvim-treesitter" },
+	-- {
+	-- 	"nvim-treesitter-textobjects",
+	-- 	after = function()
+	-- 		vim.g.no_plugin_maps = false
+	-- 	end,
+	-- 	dep_of = "nvim-treesitter",
+	-- },
+	-- { "nvim-treesitter-textsubjects", dep_of = "nvim-treesitter" },
 
 	-- Appearance
 	{
