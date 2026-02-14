@@ -11,7 +11,7 @@ local function javascript_formatters(bufnr)
 
 	if conform.get_formatter_info("prettierd", bufnr).available then
 		table.insert(formatters, "prettierd")
-	elseif require("conform").get_formatter_info("prettier", bufnr).available then
+	elseif conform.get_formatter_info("prettier", bufnr).available then
 		table.insert(formatters, "prettier")
 	end
 
@@ -81,3 +81,15 @@ conform.setup({
 		xmltidy = { inherit = false, command = "tidy", args = { "-xml", "-indent", "yes", "2", "-wrap", "100", "-" } }, -- INFO: Uses HTML Tidy
 	},
 })
+
+vim.api.nvim_create_user_command("Format", function(args)
+	local range = nil
+	if args.count ~= -1 then
+		local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+		range = {
+			start = { args.line1, 0 },
+			["end"] = { args.line2, end_line:len() },
+		}
+	end
+	conform.format({ async = true, lsp_format = "fallback", range = range })
+end, { range = true })

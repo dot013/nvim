@@ -40,8 +40,8 @@ lze.load({
 		after = function()
 			require("dot.formatting")
 		end,
+		cmd = { "ConformInfo", "Format" },
 		event = { "InsertLeave", "TextChanged" },
-		on_require = "conform",
 	},
 	{
 		"guess-indent.nvim",
