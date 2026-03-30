@@ -26,6 +26,7 @@ lze.load({
 	{
 		"nvim-dap",
 		after = function()
+			require("overseer").enable_dap()
 			require("dot.debugger")
 		end,
 		dep_of = { "godotdev.nvim" },
@@ -177,6 +178,25 @@ lze.load({
 			"CloakToggle",
 		},
 		ft = { "sh" },
+	},
+
+	-- Tasks Management
+	{
+		"overseer.nvim",
+		after = function()
+			require("overseer").setup({
+				dap = false,
+			})
+		end,
+		cmd = {
+			"OverseerOpen",
+			"OverseerClose",
+			"OverseerToggle",
+			"OverseerRun",
+			"OverseerShell",
+			"OverseerTaskAction",
+		},
+		dep_of = { "nvim-dap" },
 	},
 
 	-- Treesitter (Syntax Highlighting)

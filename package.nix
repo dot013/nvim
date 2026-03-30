@@ -75,6 +75,9 @@ in
         # Secrets hiding
         cloak-nvim
 
+        # Taks Management
+        overseer-nvim
+
         # Appearance
         catppuccin-nvim
         indent-blankline-nvim
