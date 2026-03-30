@@ -24,6 +24,8 @@ end
 
 conform.setup({
 	formatters_by_ft = {
+		c = { "clang-format", lsp_format = "fallback" },
+		cpp = { "clang-format", lsp_format = "fallback" },
 		css = prettier,
 		gdscript = { "gdformat" },
 		go = function(bufnr)

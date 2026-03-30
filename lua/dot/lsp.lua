@@ -2,6 +2,10 @@
 return {
 	-- Language Server Providers
 	{
+		"clangd",
+		lsp = { filetypes = { "c", "cpp", "objc", "objcpp", "cuda" } },
+	},
+	{
 		"cssls",
 		lsp = { filetypes = { "css", "scss", "less" } },
 	},

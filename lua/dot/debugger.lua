@@ -18,5 +18,8 @@ end
 
 -- Languages
 
+-- C/C++
+require("dap-lldb").setup()
+
 -- Go
 require("dap-go").setup()

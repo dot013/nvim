@@ -109,6 +109,7 @@ in
 
           vscode-langservers-extracted # cssls, eslint, html, jsonls, typescript
 
+          clang-tools
           docker-language-server
           emmet-language-server
           golangci-lint-langserver
