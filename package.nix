@@ -113,12 +113,14 @@ in
           vscode-langservers-extracted # cssls, eslint, html, jsonls, typescript
 
           clang-tools
+          deno
           docker-language-server
           emmet-language-server
           golangci-lint-langserver
           gopls
           htmx-lsp
           lemminx
+          ltex-ls
           lua-language-server
           marksman
           nil

@@ -152,6 +152,14 @@ return {
 		},
 	},
 	{
+		"ltex",
+		lsp = {
+			settings = {
+				enable = true,
+			},
+		},
+	},
+	{
 		"lua_ls",
 		lsp = {
 			filetypes = { "lua" },
