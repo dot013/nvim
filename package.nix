@@ -88,6 +88,9 @@ in
         # Todo Comments
         todo-comments-nvim
 
+        # Obsidian Integration
+        obsidian-nvim
+
         # Integrations
         (pkgs.vimUtils.buildVimPlugin {
           pname = "aw-watcher.nvim";
@@ -147,6 +150,7 @@ in
           ripgrep # Reference ./lua/dot/plugins.lua#telescope.nvim
           yazi # Reference ./lua/dot/commands.lua#Yazi file manager
           zf # Reference ./lua/dot/plugins.lua#telescope-zf-native.nvim
+          wl-clipboard # Reference ./lua/dot/plugins.lua#obsidian.nvim
         ]);
     in "--suffix PATH : ${binPath}";
   }

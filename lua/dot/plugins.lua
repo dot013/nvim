@@ -296,4 +296,15 @@ lze.load({
 		ft = { "gd", "gdscript", "gdshader", "gdscript3" },
 		on_require = "godotdev",
 	},
+	{
+		"obsidian.nvim",
+		after = function()
+			vim.opt.conceallevel = 2
+
+			require("obsidian").setup({
+				workspaces = { { name = "notes", path = "~/Nextcloud/Notes" } },
+			})
+		end,
+		ft = { "markdown" },
+	},
 })
