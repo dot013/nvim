@@ -37,9 +37,7 @@ in
         friendly-snippets # Snippets
 
         # Treesitter (Syntax Highlighting)
-        nvim-treesitter
-        # nvim-treesitter-textobjects # Dependency
-        # nvim-treesitter-textsubjects # Dependency
+        nvim-treesitter.withAllGrammars
 
         (dot-nvim.overrideAttrs {doCheck = false;})
       ];
@@ -102,7 +100,6 @@ in
         })
         godotdev
       ];
-      # inherit start opt;
     };
     extraMakeWrapperArgs = let
       binPath = lib.makeBinPath (with pkgs;

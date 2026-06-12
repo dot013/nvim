@@ -204,7 +204,7 @@ lze.load({
 		"nvim-treesitter",
 		after = function()
 			vim.api.nvim_create_autocmd("FileType", {
-				pattern = require("nvim-treesitter.config").get_installed(),
+				pattern = require("nvim-treesitter.config").get_available(),
 				callback = function()
 					vim.treesitter.start()
 				end,
