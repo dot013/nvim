@@ -52,7 +52,7 @@ in
 
         # Formatting
         conform-nvim
-        guess-indent-nvim
+        vim-sleuth
 
         # Auto Complete
         nvim-autopairs

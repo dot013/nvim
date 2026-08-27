@@ -45,12 +45,8 @@ lze.load({
 		event = { "InsertLeave", "TextChanged" },
 	},
 	{
-		"guess-indent.nvim",
-		after = function()
-			require("guess-indent").setup()
-		end,
-		cmd = "GuessIndent",
-		event = "BufEnter",
+		"vim-sleuth",
+		event = { "BufNewFile BufReadPosrt" },
 	},
 
 	-- Autocomplete
