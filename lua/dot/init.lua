@@ -81,6 +81,14 @@ vim.diagnostic.config({
 	},
 })
 
+-- Custom filetypes
+vim.filetype.add({
+	pattern = {
+		[".*/template.?/.*%.html.*"] = "gotmpl",
+		[".*/layout.?/.*%.html.*"] = "gotmpl",
+	},
+})
+
 ---- Plugins
 require("dot.plugins")
 

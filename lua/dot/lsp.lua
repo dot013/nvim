@@ -38,6 +38,9 @@ return {
 				"astro",
 				"css",
 				"eruby",
+				"gotmpl",
+				"gohtml",
+				"gohtmltmpl",
 				"html",
 				"htmlangular",
 				"htmldjango",
@@ -79,13 +82,26 @@ return {
 	{
 		"gopls",
 		lsp = {
-			filetypes = { "go", "gomod", "gowork", "gotmpl" },
+			filetypes = {
+				"go",
+				"gomod",
+				"gowork",
+				"gotmpl",
+				"gohtml",
+				"gohtmltmpl",
+			},
 		},
 	},
 	{
 		"html",
 		lsp = {
-			filetypes = { "html", "templ" },
+			filetypes = {
+				"gotmpl",
+				"gohtml",
+				"gohtmltmpl",
+				"html",
+				"templ",
+			},
 		},
 	},
 	{
@@ -105,6 +121,7 @@ return {
 			"ejs",
 			"erb",
 			"eruby", -- vim ft
+			"gotmpl",
 			"gohtml",
 			"gohtmltmpl",
 			"haml",
@@ -243,6 +260,7 @@ return {
 				"ejs",
 				"erb",
 				"eruby", -- vim ft
+				"gotmpl",
 				"gohtml",
 				"gohtmltmpl",
 				"haml",
