@@ -299,6 +299,7 @@ lze.load({
 			vim.opt.conceallevel = 2
 
 			require("obsidian").setup({
+				legacy_commands = false,
 				workspaces = { { name = "notes", path = "~/Nextcloud/Notes" } },
 			})
 		end,
