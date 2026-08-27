@@ -47,8 +47,8 @@
         ...
       }: {
         neovim = pkgs.callPackage ./package.nix {
-          mdfmt = self.packages.${pkgs.system}.mdfmt;
-          godotdev = self.packages.${pkgs.system}.godotdev;
+          mdfmt = self.packages.${pkgs.stdenv.hostPlatform.system}.mdfmt;
+          godotdev = self.packages.${pkgs.stdenv.hostPlatform.system}.godotdev;
         };
         godotdev = pkgs.vimUtils.buildVimPlugin {
           pname = "godotdev.nvim";
@@ -136,7 +136,7 @@
           vendorHash = "sha256-JtYvDgjUoEc1Mp7Eq8lbu9jWI+RR9yBo4ujGY+J70J4=";
         };
 
-        default = self.packages."${pkgs.system}".neovim;
+        default = self.packages."${pkgs.stdenv.hostPlatform.system}".neovim;
       }
     );
     devShells = forAllSystems (
@@ -191,7 +191,7 @@
                   }))
               ]
               ++ (optionals cfg.integrations.godot.enable [
-                self.packages."${pkgs.system}".godot-neovim
+                self.packages."${pkgs.stdenv.hostPlatform.system}".godot-neovim
               ]);
 
             # Disable NixOS's Neovim
@@ -243,7 +243,7 @@
                   }))
               ]
               ++ (optionals cfg.integrations.godot.enable [
-                self.packages."${pkgs.system}".godot-neovim
+                self.packages."${pkgs.stdenv.hostPlatform.system}".godot-neovim
               ]);
 
             programs.bash.shellAliases = mkIf cfg.vimdiffAlias {vimdiff = "nvim -d";};
