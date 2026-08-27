@@ -9,14 +9,18 @@ local function javascript_formatters(bufnr)
 		table.insert(formatters, "deno_fmt")
 	end
 
+	if conform.get_formatter_info("eslint", bufnr).available then
+		table.insert(formatters, "eslint")
+		return formatters
+	elseif conform.get_formatter_info("eslint_d", bufnr).available then
+		table.insert(formatters, "eslint_d")
+		return formatters
+	end
+
 	if conform.get_formatter_info("prettierd", bufnr).available then
 		table.insert(formatters, "prettierd")
 	elseif conform.get_formatter_info("prettier", bufnr).available then
 		table.insert(formatters, "prettier")
-	end
-
-	if conform.get_formatter_info("eslint_d", bufnr).available then
-		table.insert(formatters, "eslint_d")
 	end
 
 	return formatters
@@ -27,7 +31,7 @@ conform.setup({
 		c = { "clang-format", lsp_format = "fallback" },
 		cpp = { "clang-format", lsp_format = "fallback" },
 		css = prettier,
-		gdscript = { "gdformat" },
+		gdscript = { "gdscript-formatter", "gdformat", stop_after_first = true },
 		go = function(bufnr)
 			local formatters = {}
 
@@ -51,6 +55,7 @@ conform.setup({
 
 			return formatters
 		end,
+		gotmpl = { "prettierd", "prettier", "gotmplfmt", lsp_format = "fallback", stop_after_first = false },
 		html = prettier,
 		javascript = javascript_formatters,
 		javascriptreact = javascript_formatters,
@@ -61,12 +66,13 @@ conform.setup({
 		end,
 		less = prettier,
 		lua = { "stylua" },
-		markdownn = { "mdfmt" },
+		markdownn = { "prettier", "mdfmt", stop_after_first = true },
 		nix = { "alejandra", stop_after_first = true }, -- TODO: Support nix fmt command when flake.nix formatter is enabled
 		rust = { "rustfmt", lsp_format = "fallback" },
 		scss = prettier,
 		sh = { "shellharden", "shfmt" },
 		templ = { "templ" },
+		tmpl = { "gotmplfmt" },
 		yaml = prettier,
 		xhtml = { "xmllint", "xmltidy", stop_after_first = true },
 		xml = { "xmllint", "xmltidy", stop_after_first = true },
@@ -78,7 +84,8 @@ conform.setup({
 		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
-	formaters = {
+	formatters = {
+		gotmplfmt = { command = "gotmplfmt" },
 		mdfmt = { command = "mdfmt" },
 		xmltidy = { inherit = false, command = "tidy", args = { "-xml", "-indent", "yes", "2", "-wrap", "100", "-" } }, -- INFO: Uses HTML Tidy
 	},
