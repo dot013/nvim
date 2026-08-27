@@ -133,7 +133,6 @@ in
           # by flake.nix in projects
 
           alejandra
-          gdtoolkit_4
           html-tidy
           jq
           libxml2

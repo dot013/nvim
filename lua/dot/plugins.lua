@@ -286,6 +286,7 @@ lze.load({
 		after = function()
 			require("godotdev").setup({
 				autostart_editor_server = true,
+				formatter = "gdscript-formatter",
 			})
 		end,
 		cmd = { "GodotReconnectLSP", "GodotStartEditorServer" },
