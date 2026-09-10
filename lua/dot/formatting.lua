@@ -85,6 +85,7 @@ conform.setup({
 		lsp_format = "fallback",
 	},
 	formatters = {
+		["gdscript-formatter"] = { append_args = { "--reorder-code" } },
 		gotmplfmt = { command = "gotmplfmt" },
 		mdfmt = { command = "mdfmt" },
 		xmltidy = { inherit = false, command = "tidy", args = { "-xml", "-indent", "yes", "2", "-wrap", "100", "-" } }, -- INFO: Uses HTML Tidy
