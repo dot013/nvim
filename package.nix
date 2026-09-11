@@ -150,5 +150,5 @@ in
           zf # Reference ./lua/dot/plugins.lua#telescope-zf-native.nvim
           wl-clipboard # Reference ./lua/dot/plugins.lua#obsidian.nvim
         ]);
-    in "--suffix PATH : ${binPath}";
+    in "--suffix PATH : ${binPath} --set-default DOT_NVIM_CONFIG ${./.}";
   }

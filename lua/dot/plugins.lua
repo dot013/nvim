@@ -91,6 +91,9 @@ lze.load({
 						},
 						snippets = {
 							opts = {
+								search_paths = {
+									(os.getenv("DOT_NVIM_CONFIG") .. "/snippets"),
+								},
 								friendly_snippets = true, -- default
 
 								-- see the list of frameworks in: https://github.com/rafamadriz/friendly-snippets/tree/main/snippets/frameworks
