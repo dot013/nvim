@@ -57,6 +57,9 @@ in
         # Auto Complete
         nvim-autopairs
 
+        # Navigation
+        nvim-spider
+
         # Fuzzy Finding
         telescope-nvim
         telescope-zf-native-nvim # Dependency

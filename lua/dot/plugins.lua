@@ -137,6 +137,17 @@ lze.load({
 		event = "InsertEnter",
 	},
 
+	-- Navigation
+	{
+		"nvim-spider",
+		after = function()
+			require("spider").setup({
+				skipInsignificantPunctuation = false,
+			})
+		end,
+		on_require = "spider",
+	},
+
 	-- Fuzzy Finding
 	{
 		"telescope.nvim",

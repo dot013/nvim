@@ -70,6 +70,12 @@ vim.keymap.set("n", "<leader>K", ":lua require('dapui').eval(nil, { enter=true }
 	desc = "Debugger: Toggle debugger [U]I",
 })
 
+-- Navigation
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<cr>")
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<cr>")
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<cr>")
+vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<cr>")
+
 -- Tweaks
 vim.keymap.set("n", "J", "mzJ`z") -- Move when highlighted
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Make cursor stay in place when jumping
